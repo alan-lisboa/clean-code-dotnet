@@ -592,6 +592,7 @@ Console.WriteLine(sr2.ReadToEnd());
 <details>
   <summary><b>Use nomes pesquisáveis (parte 2)</b></summary>
  
+<br />
 :x: **Errado**
 
 ```csharp
