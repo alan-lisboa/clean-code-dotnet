@@ -12,7 +12,7 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
 - [Clean Code .NET](#clean-code-net)
   - [Nomeação (Naming)](#nomeação-naming)
   - [Variáveis](#variáveis)
-  - [Functions](#functions)
+  - [Funções](#funções)
   - [Objects and Data Structures](#objects-and-data-structures)
   - [Classes](#classes)
   - [SOLID](#solid)
@@ -45,7 +45,6 @@ Inspirado nas listas [clean-code-javascript](https://github.com/ryanmcdermott/cl
   <summary><b>Evite usar nomes ruins</b></summary>
 Um bom nome permite que o código possa ser utilizado por muitos desenvolvedores. O nome deve refletir o que faz e dar o contexto.
 
-<br />
 :x: **Errado**
 
 ```csharp
@@ -549,7 +548,7 @@ Leremos mais código do que escreveremos. É importante que o código que escrev
 :x: **Errado**
 
 ```csharp
-// Para que diabos serve o 'data'?
+// Para que serve o 'data'?
 var data = new { Name = "John", Age = 42 };
 
 var stream1 = new MemoryStream();
@@ -694,17 +693,16 @@ public void CreateMicrobrewery(string breweryName = "Hipster Brew Co.")
 
 </details>
 
-## Functions
+## Funções
 
 <details>
-  <summary><b>Avoid side effects</b></summary>
+  <summary><b>Evite efeitos colaterais</b></summary>
 
-A function produces a side effect if it does anything other than take a value in and return another value or values. A side effect could be writing to a file, modifying some global variable, or accidentally wiring all your money to a stranger.
+Uma função produz um efeito colateral se fizer qualquer coisa além de receber um valor e retornar outro valor ou valores. Um efeito colateral pode ser gravar em um arquivo, modificar alguma variável global ou transferir acidentalmente todo o seu dinheiro para um estranho.
 
-Now, you do need to have side effects in a program on occasion. Like the previous example, you might need to write to a file. What you want to do is to centralize where you are doing this. Don't have several functions and classes that write to a particular file. Have one service that does it. One and only one.
+Agora, você precisa ter efeitos colaterais em um programa ocasionalmente. Como no exemplo anterior, pode ser necessário gravar em um arquivo. O que você quer fazer é centralizar onde você está fazendo isso. Não tenha várias funções e classes que gravem em um arquivo específico. Tenha um serviço que faça isso. Um e somente um.
 
-The main point is to avoid common pitfalls like sharing state between objects without any structure, using mutable data types that can be written to by anything, and not centralizing where your side effects occur. If you can do this, you will be happier
-than the vast majority of other programmers.
+O ponto principal é evitar armadilhas comuns, como compartilhar estado entre objetos sem qualquer estrutura, usar tipos de dados mutáveis que podem ser gravados por qualquer coisa e não centralizar onde ocorrem os efeitos colaterais. Se você puder fazer isso, você será mais feliz do que a grande maioria dos outros programadores.
 
 :x: **Errado**
 
@@ -745,7 +743,7 @@ Console.WriteLine(fullName); // His first name is Ryan, and his last name is McD
 </details>
 
 <details>
-  <summary><b>Avoid negative conditionals</b></summary>
+  <summary><b>Evite condicionais negativas</b></summary>
 
 :x: **Errado**
 
@@ -780,10 +778,12 @@ if (IsDOMNodePresent(node))
 </details>
 
 <details>
-  <summary><b>Avoid conditionals</b></summary>
+  <summary><b>Evite condicionais usando polimorfismo</b></summary>
 
-This seems like an impossible task. Upon first hearing this, most people say, "how am I supposed to do anything without an `if` statement?" The answer is that you can use polymorphism to achieve the same task in many cases. The second question is usually, "well that's great but why would I want to do that?" The answer is a previous clean code concept we learned: a function should only do
-one thing. When you have classes and functions that have `if` statements, you are telling your user that your function does more than one thing. Remember, just do one thing.
+Esta parece ser uma tarefa impossível. Ao ouvir isso pela primeira vez, a maioria das pessoas diz: "como posso fazer algo sem uma declaração `if`?". 
+A resposta é que você pode usar o polimorfismo para realizar a mesma tarefa em muitos casos. 
+A segunda pergunta geralmente é: "bem, isso é ótimo, mas por que eu iria querer fazer isso?" A resposta é um conceito anterior de código limpo que aprendemos: uma função só deve fazer uma Coisa. Quando você tem classes e funções que possuem instruções `if`, você está dizendo ao usuário que sua função faz mais de uma coisa. 
+Lembre-se, faça apenas uma coisa.
 
 :x: **Errado**
 
@@ -853,7 +853,7 @@ class Cessna : IAirplane
 </details>
 
 <details>
-  <summary><b>Avoid type-checking (part 1)</b></summary>
+  <summary><b>Evite verificação de tipos (parte 1)</b></summary>
 
 :x: **Errado**
 
@@ -880,7 +880,7 @@ public Path TravelToTexas(Traveler vehicle)
 }
 ```
 
-or
+:heavy_check_mark: **Correto**
 
 ```csharp
 // pattern matching
@@ -902,7 +902,7 @@ public Path TravelToTexas(object vehicle)
 </details>
 
 <details>
-  <summary><b>Avoid type-checking (part 2)</b></summary>
+  <summary><b>Evite verificação de tipos (parte 2)</b></summary>
 
 :x: **Errado**
 
@@ -933,9 +933,9 @@ public int Combine(int val1, int val2)
 </details>
 
 <details>
-  <summary><b>Avoid flags in method parameters</b></summary>
+  <summary><b>Evite flags nos parâmetros do método</b></summary>
 
-A flag indicates that the method has more than one responsibility. It is best if the method only has a single responsibility. Split the method into two if a boolean parameter adds multiple responsibilities to the method.
+Uma `flag` indica que o método tem mais de uma responsabilidade. É melhor que o método tenha apenas uma única responsabilidade. Divida o método em dois se um parâmetro booleano adicionar múltiplas responsabilidades ao método.
 
 :x: **Errado**
 
@@ -972,10 +972,10 @@ public void CreateTempFile(string name)
 </details>
 
 <details>
-  <summary><b>Don't write to global functions</b></summary>
+  <summary><b>Não escreva em funções globais</b></summary>
 
-Polluting globals is a bad practice in many languages because you could clash with another library and the user of your API would be none-the-wiser until they get an exception in production. Let's think about an example: what if you wanted to have configuration array.
-You could write global function like `Config()`, but it could clash with another library that tried to do the same thing.
+Poluir globais é uma prática ruim em muitas linguagens porque você poderia entrar em conflito com outra biblioteca e o usuário de sua API não saberia até obter uma exceção na produção. Vamos pensar em um exemplo: e se você quisesse ter um array de configuração.
+Você poderia escrever uma função global como `Config()`, mas ela poderia entrar em conflito com outra biblioteca que tentasse fazer a mesma coisa.
 
 :x: **Errado**
 
@@ -1000,38 +1000,41 @@ class Configuration
         _configuration = configuration;
     }
 
-    public string[] Get(string key)
+    public string Get(string key)
     {
         return _configuration.ContainsKey(key) ? _configuration[key] : null;
     }
 }
 ```
 
-Load configuration and create instance of `Configuration` class
+Carregar configuração e criar instância da classe `Configuration`
 
 ```csharp
 var configuration = new Configuration(new Dictionary<string, string>() {
     ["foo"] = "bar"
 });
 ```
+E agora você deve usar a instância de `Configuração` em sua aplicação.
 
-And now you must use instance of `Configuration` in your application.
+```csharp
+var fooValue = configuration.Get("foo");
+```
 
 **[⬆ Voltar ao topo](#conteúdo)**
 
 </details>
 
 <details>
-  <summary><b>Don't use a Singleton pattern</b></summary>
+  <summary><b>Não use o padrão Singleton</b></summary>
 
-Singleton is an [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern). Paraphrased from Brian Button:
+Singleton é um [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern) e não deve ser usado. Parafraseado por Brian Button:
 
-1. They are generally used as a **global instance**, why is that so bad? Because **you hide the dependencies** of your application in your code, instead of exposing them through the interfaces. Making something global to avoid passing it around is a [code smell](https://en.wikipedia.org/wiki/Code_smell).
-2. They violate the [single responsibility principle](#single-responsibility-principle-srp): by virtue of the fact that **they control their own creation and lifecycle**.
-3. They inherently cause code to be tightly [coupled](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). This makes faking them out under **test rather difficult** in many cases.
-4. They carry state around for the lifetime of the application. Another hit to testing since **you can end up with a situation where tests need to be ordered** which is a big no for unit tests. Why? Because each unit test should be independent from the other.
+1. Eles geralmente são usados como uma **instância global** e por que isso é tão ruim? Porque **você oculta as dependências** da sua aplicação no seu código, em vez de expô-las através das interfaces. Tornar algo global para evitar distribuí-lo é um [Code Smell](https://en.wikipedia.org/wiki/Code_smell).
+2. Eles violam o [princípio de responsabilidade única](#single-responsibility-principle-srp): em virtude do fato de que **eles controlam sua própria criação e ciclo de vida**.
+3. Eles inerentemente fazem com que o código seja fortemente [acoplado](https://en.wikipedia.org/wiki/Coupling_%28computer_programming%29). Isso torna bastante difícil falsea-los durante os **testes** na maioria dos casos.
+4. Eles carregam o estado durante toda a vida útil da aplicação. Isso pode ocasionar problemas nos testes unitários porque um teste pode considerar o estado do objeto resultante de outro teste anterior, e ocasionar um resultado de falso/positivo. Cada teste unitário deve ser independente um do outro.
 
-There is also very good thoughts by [Misko Hevery](http://misko.hevery.com/about/) about the [root of problem](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
+Também há considerações muito boas de [Misko Hevery](http://misko.hevery.com/about/) sobre a [raiz do problema](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
 
 :x: **Errado**
 
@@ -1075,26 +1078,26 @@ class DBConnection
 }
 ```
 
-Create instance of `DBConnection` class and configure it with [Option pattern](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-2.1).
+Crie uma instância da classe `DBConnection` e configure-a com o [Option pattern](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-2.1).
 
 ```csharp
 var options = <resolve from IOC>;
 var connection = new DBConnection(options);
 ```
 
-And now you must use instance of `DBConnection` in your application.
+E agora você pode usar a instância de `DBConnection` em sua aplicação.
 
 **[⬆ Voltar ao topo](#conteúdo)**
 
 </details>
 
 <details>
-  <summary><b>Function arguments (2 or fewer ideally)</b></summary>
+  <summary><b>Argumentos de função (2 ou menos, idealmente)</b></summary>
 
-Limiting the amount of function parameters is incredibly important because it makes testing your function easier. Having more than three leads to a combinatorial explosion where you have to test tons of different cases with each separate argument.
+Limitar a quantidade de parâmetros de função é extremamente importante porque facilita o teste de sua função. Ter mais de três leva a uma explosão combinatória onde você terá que testar vários casos diferentes com cada argumento separado.
 
-Zero arguments is the ideal case. One or two arguments is ok, and three should be avoided. Anything more than that should be consolidated. Usually, if you have more than two arguments then your function is trying to do too much. In cases where it's not, most of the time a higher-level object will suffice as an argument.
-
+Zero argumentos é o caso ideal. Um ou dois argumentos são aceitáveis e três devem ser evitados. Qualquer coisa além disso deve ser consolidada. Normalmente, se você tiver mais de dois argumentos, sua função está tentando fazer muita coisa. Nos casos em que não é, na maioria das vezes um objeto de nível superior será suficiente como argumento.
+​
 :x: **Errado**
 
 ```csharp
@@ -1134,10 +1137,9 @@ public void CreateMenu(MenuConfig config)
 </details>
 
 <details>
-  <summary><b>Functions should do one thing</b></summary>
+  <summary><b>Funções devem fazer somente uma coisa</b></summary>
 
-This is by far the most important rule in software engineering. When functions do more than one thing, they are harder to compose, test, and reason about. When you can isolate a function to just one action, they can be refactored easily and your code will read much
-cleaner. If you take nothing else away from this guide other than this, you'll be ahead of many developers.
+Esta é de longe a regra mais importante na engenharia de software. Quando as funções fazem mais de uma coisa, são mais difíceis de compor, testar e raciocinar. Quando você pode isolar uma função para apenas uma ação, elas podem ser refatoradas facilmente e seu código será lido com mais facilidade. Se você não tirar nada deste guia além deste tópico, estará à frente de muitos desenvolvedores.
 
 :x: **Errado**
 
@@ -1175,7 +1177,7 @@ public List<Client> GetActiveClients(string[] clients)
 </details>
 
 <details>
-  <summary><b>Function names should say what they do</b></summary>
+  <summary><b>Os nomes das funções devem dizer o que fazem</b></summary>
 
 :x: **Errado**
 
@@ -1218,11 +1220,11 @@ message.Send();
 </details>
 
 <details>
-  <summary><b>Functions should only be one level of abstraction</b></summary>
+  <summary><b>As funções devem ter apenas um nível de abstração</b></summary>
 
-> Not finished yet
+> Não terminado ainda
 
-When you have more than one level of abstraction your function is usually doing too much. Splitting up functions leads to reusability and easier testing.
+Quando você tem mais de um nível de abstração, sua função geralmente está fazendo muita coisa. A divisão de funções leva à reutilização e a testes mais fáceis.
 
 :x: **Errado**
 
@@ -1256,9 +1258,9 @@ public string ParseBetterJSAlternative(string code)
 }
 ```
 
-**Bad too:**
+:x: **Errado também**
 
-We have carried out some of the functionality, but the `ParseBetterJSAlternative()` function is still very complex and not testable.
+Realizamos algumas funcionalidades, mas a função `ParseBetterJSAlternative()` ainda é muito complexa e não pode ser testada.
 
 ```csharp
 public string Tokenize(string code)
@@ -1305,7 +1307,7 @@ public string ParseBetterJSAlternative(string code)
 
 :heavy_check_mark: **Correto**
 
-The best solution is move out the dependencies of `ParseBetterJSAlternative()` function.
+A melhor solução é remover as dependências da função `ParseBetterJSAlternative()`.
 
 ```csharp
 class Tokenizer
@@ -1372,9 +1374,9 @@ class BetterJSAlternative
 </details>
 
 <details>
-  <summary><b>Function callers and callees should be close</b></summary>
+  <summary><b>Chamadores e receptores de funções devem estar próximos</b></summary>
 
-If a function calls another, keep those functions vertically close in the source file. Ideally, keep the caller right above the callee. We tend to read code from top-to-bottom, like a newspaper. Because of this, make your code read that way.
+Se uma função chamar outra, mantenha essas funções fechadas verticalmente no arquivo de origem. O ideal é manter o chamador logo acima do receptor. Tendemos a ler o código de cima para baixo, como um jornal. Por causa disso, faça seu código ser lido dessa maneira.
 
 :x: **Errado**
 
@@ -1507,9 +1509,9 @@ if (article.IsPublished())
 </details>
 
 <details>
-  <summary><b>Remove dead code</b></summary>
+  <summary><b>Remova código morto</b></summary>
 
-Dead code is just as bad as duplicate code. There's no reason to keep it in your codebase. If it's not being called, get rid of it! It will still be safe in your version history if you still need it.
+Código morto é tão ruim quanto código duplicado. Não há razão para mantê-lo em sua base de código. Se não estiver sendo chamado, livre-se dele! Ainda estará seguro em seu histórico de versões se você ainda precisar dele.
 
 :x: **Errado**
 
