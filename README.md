@@ -49,6 +49,7 @@ Inspirado nas listas [clean-code-javascript](https://github.com/ryanmcdermott/cl
   <summary><b>Evite usar nomes ruins</b></summary>
 Um bom nome permite que o código possa ser utilizado por muitos desenvolvedores. O nome deve refletir o que faz e dar o contexto.
 
+<br />
 :x: **Errado**
 
 ```csharp
@@ -176,9 +177,9 @@ class Alpaca {}
 
 <details>
   <summary><b>Use nomes pronunciáveis</b></summary>
-
-It will take time to investigate the meaning of the variables and functions when they are not pronounceable.
 Levará um bom tempo para investigar o significado das variáveis e funções quando elas não puderem ser pronunciadas.
+
+<br />
 :x: **Errado**
 
 ```csharp
