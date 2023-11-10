@@ -2405,14 +2405,13 @@ public List<ManagerData> ShowManagerList(Manager managers)
         var expectedSalary = manager.CalculateExpectedSalary();
         var experience = manager.GetExperience();
         var githubLink = manager.GetGithubLink();
-        var data =
-        new[] {
+        var data = new[] {
             expectedSalary,
             experience,
             githubLink
         };
 
-        render(data);
+        Render(data);
     }
 }
 ```
@@ -2427,14 +2426,13 @@ public List<EmployeeData> ShowList(Employee employees)
         var expectedSalary = employees.CalculateExpectedSalary();
         var experience = employees.GetExperience();
         var githubLink = employees.GetGithubLink();
-        var data =
-        new[] {
+        var data = new[] {
             expectedSalary,
             experience,
             githubLink
         };
 
-        render(data);
+        Render(data);
     }
 }
 ```
@@ -2448,7 +2446,7 @@ public List<EmployeeData> ShowList(Employee employees)
 {
     foreach (var employee in employees)
     {
-        render(new[] {
+        Render(new[] {
             employee.CalculateExpectedSalary(),
             employee.GetExperience(),
             employee.GetGithubLink()
