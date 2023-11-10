@@ -2383,35 +2383,41 @@ Acertar a abstração é fundamental, por isso você deve seguir os princípios 
 ```csharp
 public List<EmployeeData> ShowDeveloperList(Developers developers)
 {
+    List<EmployeeData> listOfEmployeeData = new List<EmployeeData>();
+
     foreach (var developers in developer)
     {
         var expectedSalary = developer.CalculateExpectedSalary();
         var experience = developer.GetExperience();
         var githubLink = developer.GetGithubLink();
-        var data = new[] {
+
+        var employeeData = new EmployeeData(
             expectedSalary,
             experience,
             githubLink
-        };
+        );
 
-        Render(data);
+        listOfEmployeeData.Add(employeeData);
     }
 }
 
 public List<ManagerData> ShowManagerList(Manager managers)
 {
+    List<ManagerData> listOfManagerData = new List<ManagerData>();
+
     foreach (var manager in managers)
     {
         var expectedSalary = manager.CalculateExpectedSalary();
         var experience = manager.GetExperience();
         var githubLink = manager.GetGithubLink();
-        var data = new[] {
+
+        var managerData = new ManagerData(
             expectedSalary,
             experience,
             githubLink
-        };
+        );
 
-        Render(data);
+        listOfManagerData.Add(managerData);
     }
 }
 ```
@@ -2421,18 +2427,21 @@ public List<ManagerData> ShowManagerList(Manager managers)
 ```csharp
 public List<EmployeeData> ShowList(Employee employees)
 {
+    List<EmployeeData> listOfEmployeeData = new List<EmployeeData>();
+
     foreach (var employee in employees)
     {
         var expectedSalary = employees.CalculateExpectedSalary();
         var experience = employees.GetExperience();
         var githubLink = employees.GetGithubLink();
-        var data = new[] {
+
+        var employeeData = new EmployeeData(
             expectedSalary,
             experience,
             githubLink
-        };
+        );
 
-        Render(data);
+        listOfEmployeeData.Add(employeeData);
     }
 }
 ```
@@ -2444,13 +2453,15 @@ public List<EmployeeData> ShowList(Employee employees)
 ```csharp
 public List<EmployeeData> ShowList(Employee employees)
 {
+    List<EmployeeData> listOfEmployeeData = new List<EmployeeData>();
+
     foreach (var employee in employees)
     {
-        Render(new[] {
+        listOfEmployeeData.Add(new EmployeeData(
             employee.CalculateExpectedSalary(),
             employee.GetExperience(),
             employee.GetGithubLink()
-        });
+        ));
     }
 }
 ```
