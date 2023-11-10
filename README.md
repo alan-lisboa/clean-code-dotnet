@@ -1668,10 +1668,10 @@ Console.WriteLine(employee.Name); // Employee name: John Doe
 ## Classes
 
 <details>
-  <summary><b>Use method chaining</b></summary>
+  <summary><b>Use encadeamento de métodos</b></summary>
 
-This pattern is very useful and commonly used in many libraries. It allows your code to be expressive, and less verbose.
-For that reason, use method chaining and take a look at how clean your code will be.
+Este padrão é muito útil e comumente usado em muitas bibliotecas. Ele permite que seu código seja expressivo e menos detalhado.
+Por esse motivo, use o encadeamento de métodos e veja como seu código ficará limpo.
 
 :heavy_check_mark: **Correto**
 
@@ -1732,19 +1732,18 @@ internal static void ListFluentExtensions()
 </details>
 
 <details>
-  <summary><b>Prefer composition over inheritance</b></summary>
+  <summary><b>Prefira composição à herança</b></summary>
 
-As stated famously in [_Design Patterns_](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
-you should prefer composition over inheritance where you can. There are lots of good reasons to use inheritance and lots of good reasons to use composition.
+Conforme declarado em [_Design Patterns_](https://en.wikipedia.org/wiki/Design_Patterns) pela Gang of Four (GOF), você deve preferir a composição à herança sempre que possível. Existem muitos bons motivos para usar herança e muitos bons motivos para usar composição.
 
-The main point for this maxim is that if your mind instinctively goes for inheritance, try to think if composition could model your problem better. In some cases it can.
+O ponto principal dessa máxima é que se sua mente busca instintivamente a herança, tente pensar se a composição poderia modelar melhor seu problema. Em alguns casos, pode.
 
-You might be wondering then, "when should I use inheritance?" It
-depends on your problem at hand, but this is a decent list of when inheritance makes more sense than composition:
+Você deve estar se perguntando: "quando devo usar herança?" Isto depende do seu problema em questão, mas esta é uma lista decente de quando a herança faz mais sentido do que a composição:
 
-1. Your inheritance represents an "is-a" relationship and not a "has-a" relationship (Human->Animal vs. User->UserDetails).
-2. You can reuse code from the base classes (Humans can move like all animals).
-3. You want to make global changes to derived classes by changing a base class (Change the caloric expenditure of all animals when they move).
+1. Sua herança representa um relacionamento "é um" e não um relacionamento "tem um" (Humano->Animal vs. Usuário->UserDetails).
+2. Você pode reutilizar o código das classes base (os humanos podem se mover como todos os animais).
+3. Você deseja fazer alterações globais nas classes derivadas alterando uma classe base (Alterar o gasto calórico de todos os animais quando eles se movem).
+
 
 :x: **Errado**
 
@@ -1763,8 +1762,8 @@ class Employee
     // ...
 }
 
-// Bad because Employees "have" tax data.
-// EmployeeTaxData is not a type of Employee
+// Ruim porque os funcionários (Employee) "possuem" dados fiscais (EmployeeTaxData).
+// EmployeeTaxData não é um tipo de Employee
 
 class EmployeeTaxData : Employee
 {
