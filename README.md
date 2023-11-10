@@ -441,7 +441,6 @@ foreach (var location in locations)
 <details>
   <summary><b>Evite a string mágica</b></summary>
 
-Magic strings are string values that are specified directly within application code that have an impact on the application’s behavior. Frequently, such strings will end up being duplicated within the system, and since they cannot automatically be updated using refactoring tools, they become a common source of bugs when changes are made to some strings but not others.
 Strings mágicas são valores de string especificados diretamente no código do aplicativo que têm impacto no comportamento do aplicativo. Freqüentemente, essas strings acabarão sendo duplicadas dentro do sistema e, como não podem ser atualizadas automaticamente usando ferramentas de refatoração, elas se tornam uma fonte comum de bugs quando alterações são feitas em algumas strings, mas não em outras.
 
 :x: **Errado**
@@ -506,6 +505,7 @@ public class Car
 <details>
   <summary><b>Use nomes de variáveis significativos e pronunciáveis</b></summary>
 
+<br />
 :x: **Errado**
 
 ```csharp
@@ -525,6 +525,7 @@ var currentDate = DateTime.UtcNow.ToString("MMMM dd, yyyy");
 <details>
   <summary><b>Use o mesmo vocabulário para o mesmo tipo de variável</b></summary>
 
+<br />
 :x: **Errado**
 
 ```csharp
@@ -591,6 +592,7 @@ Console.WriteLine(sr2.ReadToEnd());
 <details>
   <summary><b>Use nomes pesquisáveis (parte 2)</b></summary>
 
+<br />
 :x: **Errado**
 
 ```csharp
@@ -634,6 +636,7 @@ if (person.PersonAccess == PersonAccess.ACCESS_UPDATE)
 <details>
   <summary><b>Use variáveis explicativas</b></summary>
 
+<br />
 :x: **Errado**
 
 ```csharp
@@ -669,11 +672,10 @@ if(cityGroup.Success == true && zipCodeGroup.Success == true)
 <details>
   <summary><b>Use argumentos padrão em vez de curto-circuito ou condicionais</b></summary>
 
+<br />
 :x: **Errado**
 
-Isso não é bom porque `breweryName` pode ser `NULL`.
-
-Esta opinião é mais compreensível que a versão anterior, mas controla melhor o valor da variável.
+Isso não é bom porque `breweryName` pode ser de fato `NULL`.
 
 ```csharp
 public void CreateMicrobrewery(string name = null)
