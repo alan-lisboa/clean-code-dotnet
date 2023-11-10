@@ -13,7 +13,7 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
   - [Nomeação (Naming)](#nomeação-naming)
   - [Variáveis](#variáveis)
   - [Funções](#funções)
-  - [Objects and Data Structures](#objects-and-data-structures)
+  - [Objetos e estruturas de dados](#objetos-e-estruturas-de-dados)
   - [Classes](#classes)
   - [SOLID](#solid)
   - [Testing](#testing)
@@ -1484,7 +1484,7 @@ review.PerfReview();
 </details>
 
 <details>
-  <summary><b>Encapsulate conditionals</b></summary>
+  <summary><b>Encapsule condicionais</b></summary>
 
 :x: **Errado**
 
@@ -1546,22 +1546,22 @@ InventoryTracker("apples", request, "www.inventory-awesome.io");
 
 </details>
 
-## Objects and Data Structures
+## Objetos e estruturas de dados
 
 <details>
-  <summary><b>Use getters and setters</b></summary>
+  <summary><b>Use getters e setters</b></summary>
 
-In C# / VB.NET you can set `public`, `protected` and `private` keywords for methods.
-Using it, you can control properties modification on an object.
+Em C#/VB.NET você pode definir palavras-chave `public`, `protected` e `private` para métodos.
+Usando isto, você pode controlar a modificação de propriedades em um objeto.
 
-- When you want to do more beyond getting an object property, you don't have to look up and change every accessor in your codebase.
-- Makes adding validation simple when doing a `set`.
-- Encapsulates the internal representation.
-- Easy to add logging and error handling when getting and setting.
-- Inheriting this class, you can override default functionality.
-- You can lazy load your object's properties, let's say getting it from a server.
+- Quando você quiser fazer mais além de obter uma propriedade de objeto, não precisará procurar e alterar todos os acessadores em sua base de código.
+- Simplifica a adição de validação ao fazer um `set`.
+- Encapsula a representação interna.
+- Fácil de adicionar registro e tratamento de erros ao obter ou definir valores.
+- Herdando esta classe, você pode substituir a funcionalidade padrão.
+- Você pode carregar sobre demanda as propriedades do seu objeto.
 
-Additionally, this is part of Open/Closed principle, from object-oriented design principles.
+Além disso, isso faz parte do princípio Aberto/Fechado, dos princípios de design orientado a objetos.
 
 :x: **Errado**
 
@@ -1625,7 +1625,7 @@ balance = bankAccount.Balance;
 </details>
 
 <details>
-  <summary><b>Make objects have private/protected members</b></summary>
+  <summary><b>Faça com que os objetos tenham membros privados/protegidos</b></summary>
 
 :x: **Errado**
 
