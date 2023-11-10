@@ -16,6 +16,11 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
   - [Objetos e estruturas de dados](#objetos-e-estruturas-de-dados)
   - [Classes](#classes)
   - [SOLID](#solid)
+      - [Princípio da Responsabilidade Única](#princípio-da-responsabilidade-única)
+      - [Princípio Aberto/Fechado](#princípio-abertofechado)
+      - [Princípio da Substituição de Liskov](#princípio-da-substituição-de-liskov)
+      - [Princípio da Segregação de Interfaces](#princípio-da-segregação-de-interfaces)
+      - [Princípio de Inversão de Dependência](#princípio-de-inversão-de-dependência)
   - [Testing](#testing)
   - [Concurrency](#concurrency)
   - [Error Handling](#error-handling)
@@ -1824,24 +1829,25 @@ class Employee
 ## SOLID
 
 <details>
-  <summary><b>What is SOLID?</b></summary>
+  <summary><b>O que é SOLID?</b></summary>
 
-**SOLID** is the mnemonic acronym introduced by Michael Feathers for the first five principles named by Robert Martin, which meant five basic principles of object-oriented programming and design.
+**SOLID** é o acrônimo mnemônico (em inglês) introduzido por Michael Feathers para os primeiros cinco princípios nomeados por Robert Martin, que significavam cinco princípios básicos de programação e design orientados a objetos.
 
-- [S: Single Responsibility Principle (SRP)](#single-responsibility-principle-srp)
-- [O: Open/Closed Principle (OCP)](#openclosed-principle-ocp)
-- [L: Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
-- [I: Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
-- [D: Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
+- [S: Single Responsibility Principle (SRP) ou Princípio da Responsabilidade Única](#single-responsibility-principle-srp)
+- [O: Open/Closed Principle (OCP) ou Princípio Aberto/Fechado](#openclosed-principle-ocp)
+- [L: Liskov Substitution Principle (LSP) ou Princípio da Substituição de Liskov](#liskov-substitution-principle-lsp)
+- [I: Interface Segregation Principle (ISP) ou Princípio da Segregação de Interfaces](#interface-segregation-principle-isp)
+- [D: Dependency Inversion Principle (DIP) ou Princípio da Inversão de Dependência](#dependency-inversion-principle-dip)
 
 </details>
 
 <details>
   <summary><b>Single Responsibility Principle (SRP)</b></summary>
 
-As stated in Clean Code, "There should never be more than one reason for a class to change". It's tempting to jam-pack a class with a lot of functionality, like when you can only take one suitcase on your flight. The issue with this is that your class won't be conceptually cohesive and it will give it many reasons to change. Minimizing the amount of times you need to change a class is important.
+#### Princípio da Responsabilidade Única
+Conforme declarado no Clean Code, "Nunca deve haver mais de um motivo para a mudança de uma classe". É tentador lotar uma aula com muitas funcionalidades, como quando você só pode levar uma mala no voo. O problema com isso é que sua classe não será conceitualmente coesa e isso lhe dará muitos motivos para mudar. É importante minimizar a quantidade de vezes que você precisa mudar de classe.
 
-It's important because if too much functionality is in one class and you modify a piece of it, it can be difficult to understand how that will affect other dependent modules in your codebase.
+É importante porque se houver muita funcionalidade em uma classe e você modificar uma parte dela, pode ser difícil entender como isso afetará outros módulos dependentes em sua base de código.
 
 :x: **Errado**
 
@@ -1916,7 +1922,8 @@ class UserSettings
 <details>
   <summary><b>Open/Closed Principle (OCP)</b></summary>
 
-As stated by Bertrand Meyer, "software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification." What does that mean though? This principle basically states that you should allow users to add new functionalities without changing existing code.
+#### Princípio Aberto/Fechado
+Conforme afirma Bertrand Meyer, “entidades de software (classes, módulos, funções, etc.) devem ser abertas para extensão, mas fechadas para modificação”. O que isso significa? Este princípio basicamente afirma que você deve permitir que os usuários adicionem novas funcionalidades sem alterar o código existente.
 
 :x: **Errado**
 
@@ -2029,11 +2036,11 @@ class HttpRequester
 <details>
   <summary><b>Liskov Substitution Principle (LSP)</b></summary>
 
-This is a scary term for a very simple concept. It's formally defined as "If S is a subtype of T, then objects of type T may be replaced with objects of type S (i.e., objects of type S may substitute objects of type T) without altering any of the desirable properties of that program (correctness, task performed,
-etc.)." That's an even scarier definition.
+#### Princípio da Substituição de Liskov
+Este é um termo assustador para um conceito muito simples. É formalmente definido como "Se S é um subtipo de T, então objetos do tipo T podem ser substituídos por objetos do tipo S (ou seja, objetos do tipo S podem substituir objetos do tipo T) sem alterar nenhuma das propriedades desejáveis desse programa (correção, tarefa executada,
+etc.)." Essa é uma definição ainda mais assustadora.
 
-The best explanation for this is if you have a parent class and a child class, then the base class and child class can be used interchangeably without getting incorrect results. This might still be confusing, so let's take a look at the classic Square-Rectangle example. Mathematically, a square is a rectangle, but if you model it using the "is-a" relationship via inheritance, you quickly
-get into trouble.
+A melhor explicação para isso é que se você tiver uma classe pai e uma classe filha, então a classe base e a classe filha podem ser usadas de forma intercambiável sem obter resultados incorretos. Isso ainda pode ser confuso, então vamos dar uma olhada no exemplo clássico do Quadrado-Retângulo. Matematicamente, um quadrado é um retângulo, mas se você modelá-lo usando o relacionamento “é-um” via herança, você rapidamente ter um problema.
 
 :x: **Errado**
 
@@ -2171,10 +2178,10 @@ RenderLargeRectangles(shapes);
 <details>
   <summary><b>Interface Segregation Principle (ISP)</b></summary>
 
-ISP states that "Clients should not be forced to depend upon interfaces that they do not use."
+#### Princípio da Segregação de Interfaces
+O ISP afirma que “os clientes não devem ser forçados a depender de interfaces que não utilizam”.
 
-A good example to look at that demonstrates this principle is for
-classes that require large settings objects. Not requiring clients to setup huge amounts of options is beneficial, because most of the time they won't need all of the settings. Making them optional helps prevent having a "fat interface".
+Um bom exemplo que demonstra esse princípio é para classes que exigem objetos de configurações grandes. Não exigir que os clientes configurem grandes quantidades de opções é benéfico, porque na maioria das vezes eles não precisarão de todas as configurações. Torná-los opcionais ajuda a evitar uma "interface gorda".
 
 :x: **Errado**
 
@@ -2261,13 +2268,9 @@ public class Robot : IWorkable
 <details>
   <summary><b>Dependency Inversion Principle (DIP)</b></summary>
 
-This principle states two essential things:
-
-1. High-level modules should not depend on low-level modules. Both should depend on abstractions.
-2. Abstractions should not depend upon details. Details should depend on abstractions.
-
-This can be hard to understand at first, but if you've worked with .NET/.NET Core framework, you've seen an implementation of this principle in the form of [Dependency Injection](https://martinfowler.com/articles/injection.html) (DI). While they are not identical concepts, DIP keeps high-level modules from knowing the details of its low-level modules and setting them up.
-It can accomplish this through DI. A huge benefit of this is that it reduces the coupling between modules. Coupling is a very bad development pattern because it makes your code hard to refactor.
+#### Princípio de Inversão de Dependência
+Isso pode ser difícil de entender no início, mas se você trabalhou com a estrutura .NET/.NET Core, viu uma implementação desse princípio na forma de [Injeção de Dependência](https://martinfowler.com/articles/injection.html) (DI). Embora não sejam conceitos idênticos, o DIP impede que os módulos de alto nível conheçam os detalhes de seus módulos de baixo nível e os configurem.
+Isso pode ser feito por meio do DI. Um grande benefício disso é que reduz o acoplamento entre os módulos. O acoplamento é um padrão de desenvolvimento muito ruim porque dificulta a refatoração do seu código.
 
 :x: **Errado**
 
