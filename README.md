@@ -2366,17 +2366,17 @@ public class Manager
 </details>
 
 <details>
-  <summary><b>Don’t repeat yourself (DRY)</b></summary>
+  <summary><b>DRY - Don’t repeat yourself (Não repita você mesmo)</b></summary>
 
-Try to observe the [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle.
+Tente observar o princípio [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 
-Do your absolute best to avoid duplicate code. Duplicate code is bad because it means that there's more than one place to alter something if you need to change some logic.
+Faça o seu melhor para evitar código duplicado. Código duplicado é ruim porque significa que há mais de um lugar para alterar algo se você precisar alterar alguma lógica.
 
-Imagine if you run a restaurant and you keep track of your inventory: all your tomatoes, onions, garlic, spices, etc. If you have multiple lists that you keep this on, then all have to be updated when you serve a dish with tomatoes in them. If you only have one list, there's only one place to update!
+Imagine se você administra um restaurante e monitora seu estoque: todos os seus tomates, cebolas, alho, temperos, etc. Se você tiver várias listas nas quais mantém isso, todas deverão ser atualizadas quando você servir um prato com tomates neles. Se você tiver apenas uma lista, só há um lugar para atualizar!
 
-Oftentimes you have duplicate code because you have two or more slightly different things, that share a lot in common, but their differences force you to have two or more separate functions that do much of the same things. Removing duplicate code means creating an abstraction that can handle this set of different things with just one function/module/class.
+Muitas vezes você tem código duplicado porque tem duas ou mais coisas ligeiramente diferentes, que têm muito em comum, mas suas diferenças forçam você a ter duas ou mais funções separadas que fazem muitas das mesmas coisas. Remover código duplicado significa criar uma abstração que possa lidar com esse conjunto de coisas diferentes com apenas uma função/módulo/classe.
 
-Getting the abstraction right is critical, that's why you should follow the SOLID principles laid out in the [Classes](#classes) section. Bad abstractions can be worse than duplicate code, so be careful! Having said this, if you can make a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself updating multiple places anytime you want to change one thing.
+Acertar a abstração é fundamental, por isso você deve seguir os princípios SOLID descritos na seção [Classes](#classes). Abstrações ruins podem ser piores que código duplicado, então tome cuidado! Dito isto, se você consegue fazer uma boa abstração, faça-a! Não se repita, caso contrário você se verá atualizando vários lugares sempre que quiser mudar alguma coisa.
 
 :x: **Errado**
 
