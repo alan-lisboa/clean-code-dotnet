@@ -2439,9 +2439,9 @@ public List<EmployeeData> ShowList(Employee employees)
 }
 ```
 
-**Very good:**
+:heavy_check_mark: **Melhor ainda**
 
-It is better to use a compact version of the code.
+É melhor usar uma versão compacta do código.
 
 ```csharp
 public List<EmployeeData> ShowList(Employee employees)
