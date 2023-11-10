@@ -283,7 +283,7 @@ public static void main(String[] args)
 ## Variáveis
 
 <details>
-  <summary><b>Evite aninhar muito profundamentem blocos condicionais e retorne o quanto antes</b></summary>
+  <summary><b>Evite aninhar profundamente blocos condicionais, retorne o quanto antes</b></summary>
 
 Muitas instruções _if/else_ podem dificultar o acompanhamento do código. **Explícito é melhor que implícito**
 
@@ -439,11 +439,12 @@ foreach (var location in locations)
 </details>
 
 <details>
-  <summary><b>Avoid magic string</b></summary>
+  <summary><b>Evite a string mágica</b></summary>
 
 Magic strings are string values that are specified directly within application code that have an impact on the application’s behavior. Frequently, such strings will end up being duplicated within the system, and since they cannot automatically be updated using refactoring tools, they become a common source of bugs when changes are made to some strings but not others.
+Strings mágicas são valores de string especificados diretamente no código do aplicativo que têm impacto no comportamento do aplicativo. Freqüentemente, essas strings acabarão sendo duplicadas dentro do sistema e, como não podem ser atualizadas automaticamente usando ferramentas de refatoração, elas se tornam uma fonte comum de bugs quando alterações são feitas em algumas strings, mas não em outras.
 
-**Bad**
+:x: **Errado**
 
 ```csharp
 if (userRole == "Admin")
@@ -452,7 +453,7 @@ if (userRole == "Admin")
 }
 ```
 
-**Good**
+:heavy_check_mark: **Correto**
 
 ```csharp
 const string ADMIN_ROLE = "Admin"
@@ -461,17 +462,16 @@ if (userRole == ADMIN_ROLE)
     // logic in here
 }
 ```
-
-Using this we only have to change in centralize place and others will adapt it.
+Usando desta forma, teremos só que mudar no local centralizado e todos os outros pontos do sistema irão adaptar-se.
 
 **[⬆ Voltar ao topo](#conteúdo)**
 
 </details>
 
 <details>
-  <summary><b>Don't add unneeded context</b></summary>
+  <summary><b>Não adicione contexto desnecessário</b></summary>
 
-If your class/object name tells you something, don't repeat that in your variable name.
+Se o nome da sua classe/objeto lhe disser algo, não repita isso no nome da sua variável.
 
 :x: **Errado**
 
@@ -504,7 +504,7 @@ public class Car
 </details>
 
 <details>
-  <summary><b>Use meaningful and pronounceable variable names</b></summary>
+  <summary><b>Use nomes de variáveis significativos e pronunciáveis</b></summary>
 
 :x: **Errado**
 
@@ -523,7 +523,7 @@ var currentDate = DateTime.UtcNow.ToString("MMMM dd, yyyy");
 </details>
 
 <details>
-  <summary><b>Use the same vocabulary for the same type of variable</b></summary>
+  <summary><b>Use o mesmo vocabulário para o mesmo tipo de variável</b></summary>
 
 :x: **Errado**
 
@@ -545,14 +545,14 @@ GetUser();
 </details>
 
 <details>
-  <summary><b>Use searchable names (part 1)</b></summary>
+  <summary><b>Use nomes pesquisáveis (parte 1)</b></summary>
 
-We will read more code than we will ever write. It's important that the code we do write is readable and searchable. By _not_ naming variables that end up being meaningful for understanding our program, we hurt our readers. Make your names searchable.
+Leremos mais código do que escreveremos. É importante que o código que escrevemos seja legível e pesquisável. Ao _não_ nomear variáveis que acabam sendo significativas para a compreensão do nosso programa, prejudicamos nossos leitores. Torne seus nomes pesquisáveis.
 
 :x: **Errado**
 
 ```csharp
-// What the heck is data for?
+// Para que diabos serve o 'data'?
 var data = new { Name = "John", Age = 42 };
 
 var stream1 = new MemoryStream();
@@ -576,7 +576,7 @@ var person = new Person
 
 var stream2 = new MemoryStream();
 var ser2 = new DataContractJsonSerializer(typeof(Person));
-ser2.WriteObject(stream2, data);
+ser2.WriteObject(stream2, person);
 
 stream2.Position = 0;
 var sr2 = new StreamReader(stream2);
@@ -589,17 +589,17 @@ Console.WriteLine(sr2.ReadToEnd());
 </details>
 
 <details>
-  <summary><b>Use searchable names (part 2)</b></summary>
+  <summary><b>Use nomes pesquisáveis (parte 2)</b></summary>
 
 :x: **Errado**
 
 ```csharp
 var data = new { Name = "John", Age = 42, PersonAccess = 4};
 
-// What the heck is 4 for?
+// Para que serve o 4?
 if (data.PersonAccess == 4)
 {
-    // do edit ...
+    // editar ...
 }
 ```
 
@@ -623,7 +623,7 @@ var person = new Person
 
 if (person.PersonAccess == PersonAccess.ACCESS_UPDATE)
 {
-    // do edit ...
+    // editar ...
 }
 ```
 
@@ -632,7 +632,7 @@ if (person.PersonAccess == PersonAccess.ACCESS_UPDATE)
 </details>
 
 <details>
-  <summary><b>Use explanatory variables</b></summary>
+  <summary><b>Use variáveis explicativas</b></summary>
 
 :x: **Errado**
 
@@ -667,13 +667,13 @@ if(cityGroup.Success == true && zipCodeGroup.Success == true)
 </details>
 
 <details>
-  <summary><b>Use default arguments instead of short circuiting or conditionals</b></summary>
+  <summary><b>Use argumentos padrão em vez de curto-circuito ou condicionais</b></summary>
 
-**Not good:**
+:x: **Errado**
 
-This is not good because `breweryName` can be `NULL`.
+Isso não é bom porque `breweryName` pode ser `NULL`.
 
-This opinion is more understandable than the previous version, but it better controls the value of the variable.
+Esta opinião é mais compreensível que a versão anterior, mas controla melhor o valor da variável.
 
 ```csharp
 public void CreateMicrobrewery(string name = null)
