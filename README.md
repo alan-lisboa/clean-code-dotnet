@@ -2473,20 +2473,19 @@ public List<EmployeeData> ShowList(Employee employees)
 ## Testing
 
 <details>
-  <summary><b>Basic concept of testing</b></summary>
+  <summary><b>Conceito básico de teste</b></summary>
 
-Testing is more important than shipping. If you have no tests or an
-inadequate amount, then every time you ship code you won't be sure that you didn't break anything. Deciding on what constitutes an adequate amount is up to your team, but having 100% coverage (all statements and branches) is how you achieve very high confidence and developer peace of mind. This means that in addition to having a great testing framework, you also need to use a [good coverage tool](https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested).
+Teste é mais importante do que o envio do código. Se você não tiver testes ou tiver em quantidade inadequada, toda vez que você enviar o código, você não terá certeza de que não quebrou nada. A decisão sobre o que constitui um valor adequado cabe à sua equipe, mas ter 100% de cobertura (todos os statements e branches) é a maneira que você consegue ter uma confiança muito alta e também dar tranquilidade para o desenvolvedor. Isso significa que além de ter uma ótima estrutura de testes, você também precisa usar uma [boa ferramenta de cobertura](https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested).
 
-There's no excuse to not write tests. There's [plenty of good .NET test frameworks](https://github.com/thangchung/awesome-dotnet-core#testing), so find one that your team prefers. When you find one that works for your team, then aim to always write tests for every new feature/module you introduce. If your preferred method is Test Driven Development (TDD), that is great, but the main point is to just make sure you are reaching your coverage goals before launching any feature, or refactoring an existing one.
+Não há desculpa para não escrever testes. Existem [bons frameworks de teste em .NET](https://github.com/thangchung/awesome-dotnet-core#testing), encontre uma que sua equipe prefira. Quando você encontrar um que funcione para sua equipe, tente sempre escrever testes para cada novo recurso/módulo introduzido. 
 
+Você pode optar também pelo método do _Test Driven Development (TDD)_, que é um bom método para escrever os testes antes mesmo de escrever o código, porém o ponto principal é apenas ter certeza de que você está atingindo seus objetivos de cobertura antes de lançar qualquer recurso ou refatorar um existente.
 </details>
 
 <details>
-  <summary><b>Single concept per test</b></summary>
+  <summary><b>Conceito único por teste</b></summary>
 
-Ensures that your tests are laser focused and not testing miscellaenous (non-related) things, forces [AAA patern](http://wiki.c2.com/?ArrangeActAssert) used to make your codes more clean and readable.
-
+Certifique que seus testes sejam focados e não testem coisas diversas (não relacionadas), force o [padrão AAA](http://wiki.c2.com/?ArrangeActAssert) para tornar seus códigos mais limpos e legíveis.
 :x: **Errado**
 
 ```csharp
@@ -2560,7 +2559,7 @@ public class MakeDotNetGreatAgainTests
 
 ```
 
-> Soure https://www.codingblocks.net/podcast/how-to-write-amazing-unit-tests
+> Fonte: https://www.codingblocks.net/podcast/how-to-write-amazing-unit-tests
 
 **[⬆ Voltar ao topo](#conteúdo)**
 
