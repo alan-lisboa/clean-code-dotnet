@@ -2828,7 +2828,7 @@ Whenever possible, throw contextualized exceptions instead of using the standard
 public double Divide(double dividend, double divider) {
     if (divider == 0)
     {
-        throw new Execption("Cannot be divided by zero");
+        throw new Exception("Cannot be divided by zero");
     }
 
     return dividend / divider;
@@ -2841,7 +2841,7 @@ public double Divide(double dividend, double divider) {
 public double Divide(double dividend, double divider) {
     if (divider == 0)
     {
-        throw new InvalidOperationExecption("Cannot be divided by zero");
+        throw new InvalidOperationException("Cannot be divided by zero");
     }
 
     return dividend / divider;
