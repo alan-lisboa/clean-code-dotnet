@@ -23,7 +23,7 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
       - [Princípio de Inversão de Dependência](#princípio-de-inversão-de-dependência)
   - [Testes](#testes)
   - [Concorrência](#concorrência)
-  - [Error Handling](#error-handling)
+  - [Tratamento de Erros (Error Handling)](#tratamento-de-erros-error-handling)
   - [Formatting](#formatting)
   - [Comments](#comments)
 - [Other Clean Code Resources](#other-clean-code-resources)
@@ -2483,9 +2483,10 @@ Você pode optar também pelo método do _Test Driven Development (TDD)_, que é
 </details>
 
 <details>
-  <summary><b>Conceito único por teste</b></summary>
+  <summary><b>Conceito de teste por únidade</b></summary>
 
-Certifique que seus testes sejam focados e não testem coisas diversas (não relacionadas), force o [padrão AAA](http://wiki.c2.com/?ArrangeActAssert) para tornar seus códigos mais limpos e legíveis.
+Certifique que seus testes sejam focados em uma única coisa e não esteja testando coisas diversas (não relacionadas), force o [padrão AAA](http://wiki.c2.com/?ArrangeActAssert) para tornar seus códigos mais limpos e legíveis.
+
 :x: **Errado**
 
 ```csharp
@@ -2570,67 +2571,67 @@ public class MakeDotNetGreatAgainTests
 <details>
   <summary><b>Use Async/Await</b></summary>
 
-**Summary of Asynchronous Programming Guidelines**
+**Resumo das diretrizes de programação assíncrona**
 
-| Name              | Description                                       | Exceptions                      |
-| ----------------- | ------------------------------------------------- | ------------------------------- |
-| Avoid async void  | Prefer async Task methods over async void methods | Event handlers                  |
-| Async all the way | Don't mix blocking and async code                 | Console main method (C# <= 7.0) |
-| Configure context | Use `ConfigureAwait(false)` when you can          | Methods that require con­text   |
+| Nome                     | Descrição                                             | Exceções                        |
+| ------------------------ | ----------------------------------------------------- | ------------------------------- |
+| Evite `async void`       | Prefira `async Task` em vez de `async void`           | Eventos (Event handlers)        |
+| Async por todo o caminho | Não misture código sincrono (bloqueador) e assíncrono | método Console main (C# <= 7.0) |
+| Configure o contexto     | Use `ConfigureAwait(false)` sempre que puder          | Métodos que requerem contexto   |
 
-**The Async Way of Doing Things**
+**O jeito assíncrono de fazer as coisas**
 
-| To Do This ...                           | Instead of This ...        | Use This             |
-| ---------------------------------------- | -------------------------- | -------------------- |
-| Retrieve the result of a background task | `Task.Wait or Task.Result` | `await`              |
-| Wait for any task to complete            | `Task.WaitAny`             | `await Task.WhenAny` |
-| Retrieve the results of multiple tasks   | `Task.WaitAll`             | `await Task.WhenAll` |
-| Wait a period of time                    | `Thread.Sleep`             | `await Task.Delay`   |
+| Para fazer isso ...                                  | Ao invés disso ...           | Use isto             |
+| ---------------------------------------------------- | ---------------------------- | -------------------- |
+| Recuperar o resultado de uma tarefa em segundo plano | `Task.Wait` ou `Task.Result` | `await`              |
+| Aguardar a conclusão de qualquer tarefa              | `Task.WaitAny`               | `await Task.WhenAny` |
+| Recuperar os resultados de múltiplas tarefas         | `Task.WaitAll`               | `await Task.WhenAll` |
+| Esperar por um período de tempo                      | `Thread.Sleep`               | `await Task.Delay`   |
 
-**Best practice**
+**Boas práticas**
 
-The async/await is the best for IO bound tasks (networking communication, database communication, http request, etc.) but it is not good to apply on computational bound tasks (traverse on the huge list, render a hugge image, etc.). Because it will release the holding thread to the thread pool and CPU/cores available will not involve to process those tasks. Therefore, we should avoid using Async/Await for computional bound tasks.
+O Async/Await é muito bom para tarefas vinculadas a IO (comunicação de rede, comunicação de banco de dados, solicitação http, etc.), mas não é bom para aplicar em tarefas vinculadas computacionalmente (atravessar em uma lista enorme, renderizar uma imagem enorme, etc.) . Porque isso liberará uma thread que está esperando em uma thread pool  a CPU/núcleos disponíveis não envolverão o processamento dessas tarefas. Portanto, devemos evitar o uso de Async/Await para tarefas computacionais vinculadas.
 
-For dealing with computational bound tasks, prefer to use `Task.Factory.CreateNew` with `TaskCreationOptions` is `LongRunning`. It will start a new background thread to process a heavy computational bound task without release it back to the thread pool until the task being completed.
+Para lidar com tarefas computacionais, prefira usar `Task.Factory.CreateNew` com `TaskCreationOptions` é `LongRunning`. Ele iniciará uma nova thread em segundo plano para processar uma tarefa computacional pesada sem liberá-la de volta ao pool de threads até que a tarefa seja concluída.
 
-**Know Your Tools**
+**Conheça suas ferramentas**
 
-There's a lot to learn about async and await, and it's natural to get a little disoriented. Here's a quick reference of solutions to common problems.
+Há muito o que aprender sobre async e await, e é natural ficar um pouco desorientado. Aqui está uma referência rápida de soluções para problemas comuns.
 
-**Solutions to Common Async Problems**
+**Soluções para problemas assíncronos comuns**
 
-| Problem                                         | Solution                                                                          |
-| ----------------------------------------------- | --------------------------------------------------------------------------------- |
-| Create a task to execute code                   | `Task.Run` or `TaskFactory.StartNew` (not the `Task` constructor or `Task.Start`) |
-| Create a task wrapper for an operation or event | `TaskFactory.FromAsync` or `TaskCompletionSource<T>`                              |
-| Support cancellation                            | `CancellationTokenSource` and `CancellationToken`                                 |
-| Report progress                                 | `IProgress<T>` and `Progress<T>`                                                  |
-| Handle streams of data                          | TPL Dataflow or Reactive Extensions                                               |
-| Synchronize access to a shared resource         | `SemaphoreSlim`                                                                   |
-| Asynchronously initialize a resource            | `AsyncLazy<T>`                                                                    |
-| Async-ready producer/consumer structures        | TPL Dataflow or `AsyncCollection<T>`                                              |
+| Problema                                                  | Solução                                                                            |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Criar uma tarefa para executar código                     | `Task.Run` ou `TaskFactory.StartNew` (não use o construtor `Task` ou `Task.Start`) |
+| Criar um wrapper de tarefa para uma operação ou evento    | `TaskFactory.FromAsync` ou `TaskCompletionSource<T>`                               |
+| Suporte de cancelamento                                   | `CancellationTokenSource` e `CancellationToken`                                    |
+| Reportar progresso                                        | `IProgress<T>` e `Progress<T>`                                                     |
+| Lidar com fluxos de dados                                 | TPL Dataflow ou Reactive Extensions                                                |
+| Sincronize o acesso a um recurso compartilhado            | `SemaphoreSlim`                                                                    |
+| Inicializar um recurso de forma assíncrona                | `AsyncLazy<T>`                                                                     |
+| Estruturas de produtor/consumidor prontas para assíncrono | TPL Dataflow or `AsyncCollection<T>`                                               |
 
-Read the [Task-based Asynchronous Pattern (TAP) document](http://www.microsoft.com/download/en/details.aspx?id=19957).
-It is extremely well-written, and includes guidance on API design and the proper use of async/await (including cancellation and progress reporting).
+Leia o [documento Padrão Assíncrono Baseado em Tarefas (TAP)](http://www.microsoft.com/download/en/details.aspx?id=19957).
+Ele é extremamente bem escrito e inclui orientações sobre design de API e o uso adequado de async/await (incluindo cancelamento e relatórios de progresso).
 
-There are many new await-friendly techniques that should be used instead of the old blocking techniques. If you have any of these Old examples in your new async code, you're Doing It Wrong(TM):
+Existem muitas técnicas novas de espera que devem ser usadas em vez das antigas técnicas de bloqueio. Se você tiver algum desses exemplos antigos em seu novo código assíncrono, você está fazendo isso errado(TM):
 
-| Old                | New                                  | Description                                                   |
-| ------------------ | ------------------------------------ | ------------------------------------------------------------- |
-| `task.Wait`        | `await task`                         | Wait/await for a task to complete                             |
-| `task.Result`      | `await task`                         | Get the result of a completed task                            |
-| `Task.WaitAny`     | `await Task.WhenAny`                 | Wait/await for one of a collection of tasks to complete       |
-| `Task.WaitAll`     | `await Task.WhenAll`                 | Wait/await for every one of a collection of tasks to complete |
-| `Thread.Sleep`     | `await Task.Delay`                   | Wait/await for a period of time                               |
-| `Task` constructor | `Task.Run` or `TaskFactory.StartNew` | Create a code-based task                                      |
+| Antigo            | Novo                                 | Descrição                                                 |
+| ----------------- | ------------------------------------ | --------------------------------------------------------- |
+| `task.Wait`       | `await task`                         | Aguarde a conclusão de uma tarefa                         |
+| `task.Result`     | `await task`                         | Obtenha o resultado de uma tarefa concluída               |
+| `Task.WaitAny`    | `await Task.WhenAny`                 | Aguarde a conclusão de uma de uma coleção de tarefas      |
+| `Task.WaitAll`    | `await Task.WhenAll`                 | Aguarde a conclusão de cada uma de uma coleção de tarefas |
+| `Thread.Sleep`    | `await Task.Delay`                   | Aguarde por um período de tempo                           |
+| `Task` construtor | `Task.Run` or `TaskFactory.StartNew` | Crie uma tarefa baseada em código                         |
 
-> Source https://gist.github.com/jonlabelle/841146854b23b305b50fa5542f84b20c
+> Fonte https://gist.github.com/jonlabelle/841146854b23b305b50fa5542f84b20c
 
 **[⬆ Voltar ao topo](#conteúdo)**
 
 </details>
 
-## Error Handling
+## Tratamento de Erros (Error Handling)
 
 <details>
   <summary><b>Basic concept of error handling</b></summary>
