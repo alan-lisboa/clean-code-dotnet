@@ -205,7 +205,7 @@ public class Employee
 </details>
 
 <details>
-  <summary><b>Use notação CamelCase</b></summary>
+  <summary><b>Use a notação camelCase</b></summary>
 
 Use [Notação Camelcase](https://en.wikipedia.org/wiki/Camel_case) para variáveis e parâmetros no método.
 
@@ -236,7 +236,7 @@ public double CalcularSalario(int diasTrabalhados, int horasTrabalhadas)
 </details>
 
 <details>
-  <summary><b>Use nome de domínio</b></summary>
+  <summary><b>Use nomes que identificam o domínio</b></summary>
 
 As pessoas que leem seu código também são programadores. Nomear as coisas corretamente ajudará todos a estarem na mesma página. Não queremos perder tempo explicando a todos para que serve uma variável ou função.
 
@@ -283,7 +283,7 @@ public static void main(String[] args)
 ## Variáveis
 
 <details>
-  <summary><b>Evite aninhar profundamente blocos condicionais, retorne o quanto antes</b></summary>
+  <summary><b>Evite aninhar profundamente blocos condicionais, e retorne antes sempre que puder</b></summary>
 
 Muitas instruções _if/else_ podem dificultar o acompanhamento do código. **Explícito é melhor que implícito**
 
@@ -394,7 +394,7 @@ public long Fibonacci(int n)
 </details>
 
 <details>
-  <summary><b>Evite mapeamento mental</b></summary>
+  <summary><b>Evite o mapeamento mental</b></summary>
 
 Não force o leitor do seu código a traduzir o que a variável significa. **Explícito é melhor que implícito**.
 
@@ -503,7 +503,7 @@ public class Car
 </details>
 
 <details>
-  <summary><b>Use nomes de variáveis significativos e pronunciáveis</b></summary>
+  <summary><b>Use nomes significativos e pronunciáveis para as variáveis</b></summary>
 
 <br />
 :x: **Errado**
@@ -858,7 +858,7 @@ class Cessna : IAirplane
 </details>
 
 <details>
-  <summary><b>Evite verificação de tipos (parte 1)</b></summary>
+  <summary><b>Evite a verificação de tipos (parte 1)</b></summary>
 
 :x: **Errado**
 
@@ -907,7 +907,7 @@ public Path TravelToTexas(object vehicle)
 </details>
 
 <details>
-  <summary><b>Evite verificação de tipos (parte 2)</b></summary>
+  <summary><b>Evite a verificação de tipos (parte 2)</b></summary>
 
 :x: **Errado**
 
@@ -1514,7 +1514,7 @@ if (article.IsPublished())
 </details>
 
 <details>
-  <summary><b>Remova código morto</b></summary>
+  <summary><b>Remova o código morto</b></summary>
 
 Código morto é tão ruim quanto código duplicado. Não há razão para mantê-lo em sua base de código. Se não estiver sendo chamado, livre-se dele! Ainda estará seguro em seu histórico de versões se você ainda precisar dele.
 
