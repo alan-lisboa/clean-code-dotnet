@@ -2817,6 +2817,41 @@ catch (Exception error)
 
 </details>
 
+<details>
+  <summary><b>Use contextualized exception instead 'Exception' object</b></summary>
+
+Whenever possible, throw contextualized exceptions instead of using the standard exception.
+
+:x: **Errado**
+
+```csharp
+public double Divide(double dividend, double divider) {
+    if (divider == 0)
+    {
+        throw new Execption("Cannot be divided by zero");
+    }
+
+    return dividend / divider;
+}
+```
+
+:heavy_check_mark: **Correto**
+
+```csharp
+public double Divide(double dividend, double divider) {
+    if (divider == 0)
+    {
+        throw new InvalidOperationExecption("Cannot be divided by zero");
+    }
+
+    return dividend / divider;
+}
+```
+
+**[⬆ Voltar ao topo](#conteúdo)**
+
+</details>
+
 ## Formatting
 
 <details>
