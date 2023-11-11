@@ -21,8 +21,8 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
       - [Princípio da Substituição de Liskov](#princípio-da-substituição-de-liskov)
       - [Princípio da Segregação de Interfaces](#princípio-da-segregação-de-interfaces)
       - [Princípio de Inversão de Dependência](#princípio-de-inversão-de-dependência)
-  - [Testing](#testing)
-  - [Concurrency](#concurrency)
+  - [Testes](#testes)
+  - [Concorrência](#concorrência)
   - [Error Handling](#error-handling)
   - [Formatting](#formatting)
   - [Comments](#comments)
@@ -2470,7 +2470,7 @@ public List<EmployeeData> ShowList(Employee employees)
 
 </details>
 
-## Testing
+## Testes
 
 <details>
   <summary><b>Conceito básico de teste</b></summary>
@@ -2565,7 +2565,7 @@ public class MakeDotNetGreatAgainTests
 
 </details>
 
-## Concurrency
+## Concorrência
 
 <details>
   <summary><b>Use Async/Await</b></summary>
