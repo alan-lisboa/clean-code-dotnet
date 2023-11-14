@@ -24,12 +24,12 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
   - [Testes](#testes)
   - [Concorrência](#concorrência)
   - [Tratamento de Erros (Error Handling)](#tratamento-de-erros-error-handling)
-  - [Formatting](#formatting)
-  - [Comments](#comments)
+  - [Formatação](#formatação)
+  - [Comentários](#comentários)
 - [Other Clean Code Resources](#other-clean-code-resources)
-  - [Other Clean Code Lists](#other-clean-code-lists)
-  - [Style Guides](#style-guides)
-  - [Tools](#tools)
+  - [Outras listas de Clean Code](#outras-listas-de-clean-code)
+  - [Guia de Estilos](#guia-de-estilos)
+  - [Ferramentas](#ferramentas)
   - [Cheatsheets](#cheatsheets)
 
 # Introdução
@@ -2853,18 +2853,20 @@ public double Divide(double dividend, double divider) {
 
 </details>
 
-## Formatting
+## Formatação
 
 <details>
-  <summary><b>Uses <i>.editorconfig</i> file</b></summary>
+  <summary><b>Use o arquivo <i>.editorconfig</i></b></summary>
 
+<br />
 :x: **Errado**
-
-Has many code formatting styles in the project. For example, indent style is `space` and `tab` mixed in the project.
-
+<br /><br />
+Possuir muitos estilos de formatação de código no projeto. Por exemplo, o estilo de recuo é `space` e `tab` misturados no projeto.
+<br /><br />
 :heavy_check_mark: **Correto**
-
-Define and maintain consistent code style in your codebase with the use of an `.editorconfig` file
+<br /><br />
+Defina e mantenha um estilo de código consistente em sua base de código com o uso de um arquivo `.editorconfig`
+<br /><br />
 
 ```csharp
 root = true
@@ -3023,12 +3025,12 @@ indent_size = 2
 
 </details>
 
-## Comments
+## Comentários
 
 <details>
-  <summary><b>Avoid positional markers</b></summary>
+  <summary><b>Evite marcadores posicionais</b></summary>
 
-They usually just add noise. Let the functions and variable names along with the proper indentation and formatting give the visual structure to your code.
+Eles geralmente apenas adicionam ruído. Deixe que as funções e os nomes das variáveis, juntamente com o recuo e a formatação adequados, forneçam a estrutura visual ao seu código.
 
 :x: **Errado**
 
@@ -3093,9 +3095,9 @@ void Actions()
 </details>
 
 <details>
-  <summary><b>Don't leave commented out code in your codebase</b></summary>
+  <summary><b>Não deixe código comentado em sua base de código</b></summary>
 
-Version control exists for a reason. Leave old code in your history.
+O controle de versão existe por um motivo. Deixe o código antigo em seu histórico.
 
 :x: **Errado**
 
@@ -3117,9 +3119,10 @@ doStuff();
 </details>
 
 <details>
-  <summary><b>Don't have journal comments</b></summary>
+  <summary><b>Não tenho histórico de comentários</b></summary>
 
-Remember, use version control! There's no need for dead code, commented code, and especially journal comments. Use `git log` to get history!
+Lembre-se, use o controle de versão! Não há necessidade de código morto, código comentado e, especialmente, histórico de comentários. 
+Use `git log` para obter o histórico!
 
 :x: **Errado**
 
@@ -3150,9 +3153,9 @@ public int Combine(int a,int b)
 </details>
 
 <details>
-  <summary><b>Only comment things that have business logic complexity</b></summary>
+  <summary><b>Comente apenas coisas que tenham complexidade de lógica de negócios</b></summary>
 
-Comments are an apology, not a requirement. Good code _mostly_ documents itself.
+Os comentários são um pedido de desculpas, não um requisito. Um bom código _principalmente_ documenta a si mesmo.
 
 :x: **Errado**
 
@@ -3178,7 +3181,7 @@ public int HashIt(string data)
 }
 ```
 
-**Better but still Bad:**
+**Melhor, mas ainda incorreto**
 
 ```csharp
 public int HashIt(string data)
@@ -3196,8 +3199,8 @@ public int HashIt(string data)
 }
 ```
 
-If a comment explains WHAT the code is doing, it is probably a useless comment and can be implemented with a well named variable or function. The comment in the previous code could be replaced with a function named `ConvertTo32bitInt` so this comment is still useless.
-However it would be hard to express by code WHY the developer chose djb2 hash algorithm instead of sha-1 or another hash function. In that case a comment is acceptable.
+Se um comentário explica O QUE o código está fazendo, provavelmente é um comentário inútil e pode ser implementado com uma variável ou função bem nomeada. O comentário no código anterior poderia ser substituído por uma função chamada `ConvertTo32bitInt`, portanto este comentário ainda é inútil.
+No entanto, seria difícil expressar por código POR QUE o desenvolvedor escolheu o algoritmo hash djb2 em vez de sha-1 ou outra função hash. Nesse caso, um comentário é aceitável.
 
 :heavy_check_mark: **Correto**
 
@@ -3231,38 +3234,38 @@ private int ConvertTo32BitInt(int value)
 
 # Other Clean Code Resources
 
-## Other Clean Code Lists
+## Outras listas de Clean Code
 
-- [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - Clean Code concepts adapted for JavaScript
-- [clean-code-php](https://github.com/jupeter/clean-code-php) - Clean Code concepts adapted for PHP
-- [clean-code-ruby](https://github.com/uohzxela/clean-code-ruby) - Clean Code concepts adapted for Ruby
-- [clean-code-python](https://github.com/zedr/clean-code-python) - Clean Code concepts adapted for Python
-- [clean-code-typescript](https://github.com/labs42io/clean-code-typescript) - Clean Code concepts adapted for TypeScript
-- [clean-go-article](https://github.com/Pungyeon/clean-go-article) - Clean Code concepts adapted for Golang and an example how to apply [clean code in Golang](https://github.com/Pungyeon/clean-go)
-- [clean-abap](https://github.com/SAP/styleguides) - Clean Code concepts adapted for ABAP
-- [programming-principles](https://github.com/webpro/programming-principles) - Categorized overview of Programming Principles & Patterns
-- [Elixir-Code-Smells](https://github.com/lucasvegi/Elixir-Code-Smells) - Catalog of Elixir-specific code smells
-- [awesome-clean-code](https://github.com/kkisiele/awesome-clean-code) - Design principles, featured articles, tutorials, videos, code examples, blogs and books
+- [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - Conceitos Clean Code adaptado para JavaScript
+- [clean-code-php](https://github.com/jupeter/clean-code-php) - Conceitos Clean Code adaptado para PHP
+- [clean-code-ruby](https://github.com/uohzxela/clean-code-ruby) - Conceitos Clean Code adaptado para Ruby
+- [clean-code-python](https://github.com/zedr/clean-code-python) - Conceitos Clean Code adaptado para Python
+- [clean-code-typescript](https://github.com/labs42io/clean-code-typescript) - Conceitos Clean Code adaptado para TypeScript
+- [clean-go-article](https://github.com/Pungyeon/clean-go-article) - Conceitos Clean Code adaptado para Golang e um examplo de como aplicar [clean code in Golang](https://github.com/Pungyeon/clean-go)
+- [clean-abap](https://github.com/SAP/styleguides) - Conceitos Clean Code adaptado para ABAP
+- [programming-principles](https://github.com/webpro/programming-principles) - Visão geral categorizada de princípios e padrões de programação
+- [Elixir-Code-Smells](https://github.com/lucasvegi/Elixir-Code-Smells) - Catálogo de code smells específicos do Elixir
+- [awesome-clean-code](https://github.com/kkisiele/awesome-clean-code) - Princípios de design, artigos em destaque, tutoriais, vídeos, exemplos de código, blogs e livros
 
-## Style Guides
-- [Google Styleguides](https://github.com/google/styleguide) - This project holds the C++ Style Guide, Swift Style Guide, Objective-C Style Guide, Java Style Guide, Python Style Guide, R Style Guide, Shell Style Guide, HTML/CSS Style Guide, JavaScript Style Guide, AngularJS Style Guide, Common Lisp Style Guide, and Vimscript Style Guide
-- [Django Styleguide](https://github.com/HackSoftware/Django-Styleguide) - Django styleguide used in HackSoft projects
+## Guia de Estilos
+- [Google Styleguides](https://github.com/google/styleguide) - Este projeto contém o Guia de Estilo C++, Guia de Estilo Swift, Guia de Estilo Objective-C, Guia de Estilo Java, Guia de Estilo Python, Guia de Estilo R, Guia de Estilo Shell, Guia de Estilo HTML/CSS, Guia de Estilo JavaScript, Guia de Estilo AngularJS, Common Lisp Guia de estilo e guia de estilo Vimscript
+- [Django Styleguide](https://github.com/HackSoftware/Django-Styleguide) - Guia de estilo Django usado em projetos HackSoft
 
-## Tools
+## Ferramentas
 
-- [codemaid](https://github.com/codecadwallader/codemaid) - open source Visual Studio extension to cleanup and simplify our C#, C++, F#, VB, PHP, PowerShell, JSON, XAML, XML, ASP, HTML, CSS, LESS, SCSS, JavaScript and TypeScript coding
-- [Sharpen](https://github.com/sharpenrocks/Sharpen) - Visual Studio extension that intelligently introduces new C# features into your existing code base
-- [tslint-clean-code](https://github.com/Glavin001/tslint-clean-code) - TSLint rules for enforcing Clean Code
+- [codemaid](https://github.com/codecadwallader/codemaid) - Extensão de código aberto do Visual Studio para limpar e simplificar nossa codificação C#, C++, F#, VB, PHP, PowerShell, JSON, XAML, XML, ASP, HTML, CSS, LESS, SCSS, JavaScript e TypeScript
+- [Sharpen](https://github.com/sharpenrocks/Sharpen) - Extensão do Visual Studio que introduz de forma inteligente novos recursos C# em sua base de código existente
+- [tslint-clean-code](https://github.com/Glavin001/tslint-clean-code) - Regras TSLint para aplicar Código Limpo
 
 ## Cheatsheets
 
-- [AspNetCoreDiagnosticScenarios](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios) - Examples of broken patterns in ASP.NET Core applications
-- [Clean Code](cheatsheets/Clean-Code-V2.4.pdf) - The summary of [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/dp/0132350882) book
-- [Clean Architecture](cheatsheets/Clean-Architecture-V1.0.pdf) - The summary of [Clean Architecture: A Craftsman's Guide to Software Structure and Design](https://www.amazon.com/dp/0134494164) book
-- [Modern JavaScript Cheatsheet](https://github.com/mbeaudru/modern-js-cheatsheet) - Cheatsheet for the JavaScript knowledge you will frequently encounter in modern projects
-- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org) - Cheatsheet was created to provide a concise collection of high value information on specific application security topics
-- [.NET Memory Performance Analysis](https://github.com/Maoni0/mem-doc/blob/master/doc/.NETMemoryPerformanceAnalysis.md) - This document aims to help folks who develop applications in .NET with how to think about memory performance analysis and finding the right approaches to perform such analysis if they need to. In this context .NET includes .NET Framework and .NET Core. In order to get the latest memory improvements in both the garbage collector and the rest of the framework I strongly encourage you to be on .NET Core if you are not already, because that’s where the active development happens
-- [naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet) - Comprehensive language-agnostic guidelines on variables naming
+- [AspNetCoreDiagnosticScenarios](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios) - Exemplos de broken patterns em aplicativos ASP.NET Core
+- [Clean Code](cheatsheets/Clean-Code-V2.4.pdf) - Um resumo do livro [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/dp/0132350882)
+- [Clean Architecture](cheatsheets/Clean-Architecture-V1.0.pdf) - Um resumo do livro [Clean Architecture: A Craftsman's Guide to Software Structure and Design](https://www.amazon.com/dp/0134494164)
+- [Modern JavaScript Cheatsheet](https://github.com/mbeaudru/modern-js-cheatsheet) - Cheatsheet para o conhecimento de JavaScript que você encontrará frequentemente em projetos modernos
+- [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org) - Cheatsheet foi criado para fornecer uma coleção concisa de informações de alto valor sobre tópicos específicos de segurança de aplicativos
+- [.NET Memory Performance Analysis](https://github.com/Maoni0/mem-doc/blob/master/doc/.NETMemoryPerformanceAnalysis.md) - Este documento tem como objetivo ajudar as pessoas que desenvolvem aplicativos em .NET a pensar sobre a análise de desempenho de memória e a encontrar as abordagens corretas para realizar tal análise, se necessário. Neste contexto, o .NET inclui o .NET Framework e o .NET Core. Para obter as melhorias de memória mais recentes no coletor de lixo e no restante da estrutura, recomendo fortemente que você esteja no .NET Core, caso ainda não esteja, porque é onde o desenvolvimento ativo acontece
+- [naming-cheatsheet](https://github.com/kettanaito/naming-cheatsheet) - Diretrizes abrangentes e independentes de linguagem sobre nomenclatura de variáveis
 - [101 Design Patterns & Tips for Developers](https://sourcemaking.com/design-patterns-and-tips)
 - [Go Concurrency Guide](https://github.com/luk4z7/go-concurrency-guide)
 
