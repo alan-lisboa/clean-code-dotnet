@@ -48,7 +48,10 @@ Inspirado nas listas [clean-code-javascript](https://github.com/ryanmcdermott/cl
 
 <details>
   <summary><b>Evite usar nomes ruins</b></summary>
+<br />
+
 Um bom nome permite que o código possa ser utilizado por muitos desenvolvedores. O nome deve refletir o que faz e dar o contexto.
+<br />
 
 :x: **Errado**
 
@@ -68,8 +71,10 @@ int diasAposModificacao;
 
 <details>
   <summary><b>Evite nomes enganosos</b></summary>
+<br />
 
 Nomeie a variável para refletir para que ela é usada.
+<br />
 
 :x: **Errado**
 
@@ -89,8 +94,10 @@ var listaColaboradores = _colaboradorService.ObterColaboradores().ToList();
 
 <details>
   <summary><b>Evite a notação húngara</b></summary>
+<br />
 
 A notação húngara reafirma o tipo que já está presente na declaração. Isso é inútil, pois os IDEs modernos já fazem isso.
+<br />
 
 :x: **Errado**
 
@@ -134,10 +141,12 @@ public bool VerificarLojaAberta(string dia, int total)
 
 <details>
   <summary><b>Use uma capitalização consistente</b></summary>
+<br />
 
 A capitalização diz muito sobre suas variáveis, funções, etc. 
-Essas regras são subjetivas, porém sua equipe pode escolher como eles querem utilizar.
+Essas regras são subjetivas, porém sua equipe pode escolher como eles querem utilizar.<br />
 A questão é: não importa o que vocês escolham, apenas sejam consistentes.
+<br />
 
 :x: **Errado**
 
@@ -177,9 +186,11 @@ class Alpaca {}
 
 <details>
   <summary><b>Use nomes pronunciáveis</b></summary>
-Levará um bom tempo para investigar o significado das variáveis e funções quando elas não puderem ser pronunciadas.
-
 <br />
+
+Levará um bom tempo para investigar o significado das variáveis e funções quando elas não puderem ser pronunciadas.
+<br />
+
 :x: **Errado**
 
 ```csharp
@@ -206,8 +217,10 @@ public class Employee
 
 <details>
   <summary><b>Use a notação camelCase</b></summary>
+<br />
 
 Use [Notação Camelcase](https://en.wikipedia.org/wiki/Camel_case) para variáveis e parâmetros no método.
+<br />
 
 :x: **Errado**
 
@@ -237,8 +250,11 @@ public double CalcularSalario(int diasTrabalhados, int horasTrabalhadas)
 
 <details>
   <summary><b>Use nomes que identificam o domínio</b></summary>
+<br />
 
-As pessoas que leem seu código também são programadores. Nomear as coisas corretamente ajudará todos a estarem na mesma página. Não queremos perder tempo explicando a todos para que serve uma variável ou função.
+As pessoas que leem seu código também são programadores. Nomear as coisas corretamente ajudará todos a estarem na mesma página.<br />
+Não queremos perder tempo explicando a todos para que serve uma variável ou função.
+<br />
 
 :heavy_check_mark: **Correto**
 
@@ -284,8 +300,10 @@ public static void main(String[] args)
 
 <details>
   <summary><b>Evite aninhar profundamente blocos condicionais, e retorne antes sempre que puder</b></summary>
+<br />
 
 Muitas instruções _if/else_ podem dificultar o acompanhamento do código. **Explícito é melhor que implícito**
+<br />
 
 :x: **Errado**
 
@@ -395,8 +413,10 @@ public long Fibonacci(int n)
 
 <details>
   <summary><b>Evite o mapeamento mental</b></summary>
+<br />
 
 Não force o leitor do seu código a traduzir o que a variável significa. **Explícito é melhor que implícito**.
+<br />
 
 :x: **Errado**
 
@@ -440,8 +460,11 @@ foreach (var location in locations)
 
 <details>
   <summary><b>Evite a string mágica</b></summary>
+<br />
 
-Strings mágicas são valores de string especificados diretamente no código do aplicativo que têm impacto no comportamento do aplicativo. Freqüentemente, essas strings acabarão sendo duplicadas dentro do sistema e, como não podem ser atualizadas automaticamente usando ferramentas de refatoração, elas se tornam uma fonte comum de bugs quando alterações são feitas em algumas strings, mas não em outras.
+Strings mágicas são valores de string especificados diretamente no código do aplicativo que têm impacto no comportamento do aplicativo.<br />
+Freqüentemente, essas strings acabarão sendo duplicadas dentro do sistema e, como não podem ser atualizadas automaticamente usando ferramentas de refatoração, elas se tornam uma fonte comum de bugs quando alterações são feitas em algumas strings, mas não em outras.
+<br />
 
 :x: **Errado**
 
@@ -469,8 +492,10 @@ Usando desta forma, teremos só que mudar no local centralizado e todos os outro
 
 <details>
   <summary><b>Não adicione contexto desnecessário</b></summary>
+<br />
 
 Se o nome da sua classe/objeto lhe disser algo, não repita isso no nome da sua variável.
+<br />
 
 :x: **Errado**
 
@@ -504,8 +529,8 @@ public class Car
 
 <details>
   <summary><b>Use nomes significativos e pronunciáveis para as variáveis</b></summary>
-
 <br />
+
 :x: **Errado**
 
 ```csharp
@@ -524,8 +549,8 @@ var currentDate = DateTime.UtcNow.ToString("MMMM dd, yyyy");
 
 <details>
   <summary><b>Use o mesmo vocabulário para o mesmo tipo de variável</b></summary>
-
 <br />
+
 :x: **Errado**
 
 ```csharp
@@ -547,8 +572,12 @@ GetUser();
 
 <details>
   <summary><b>Use nomes pesquisáveis (parte 1)</b></summary>
+<br />
 
-Leremos mais código do que escreveremos. É importante que o código que escrevemos seja legível e pesquisável. Ao _não_ nomear variáveis que acabam sendo significativas para a compreensão do nosso programa, prejudicamos nossos leitores. Torne seus nomes pesquisáveis.
+Leremos mais código do que escreveremos. É importante que o código que escrevemos seja legível e pesquisável.<br />
+Ao _não_ nomear variáveis que acabam sendo significativas para a compreensão do nosso programa, prejudicamos nossos leitores.<br />
+**Torne seus nomes pesquisáveis.**
+<br />
 
 :x: **Errado**
 
@@ -635,8 +664,8 @@ if (person.PersonAccess == PersonAccess.ACCESS_UPDATE)
 
 <details>
   <summary><b>Use variáveis explicativas</b></summary>
-
 <br />
+
 :x: **Errado**
 
 ```csharp
@@ -671,8 +700,8 @@ if(cityGroup.Success == true && zipCodeGroup.Success == true)
 
 <details>
   <summary><b>Use argumentos padrão em vez de curto-circuito ou condicionais</b></summary>
-
 <br />
+
 :x: **Errado**
 
 Isso não é bom porque `breweryName` pode ser de fato `NULL`.
@@ -702,12 +731,14 @@ public void CreateMicrobrewery(string breweryName = "Hipster Brew Co.")
 
 <details>
   <summary><b>Evite efeitos colaterais</b></summary>
+<br />
 
 Uma função produz um efeito colateral se fizer qualquer coisa além de receber um valor e retornar outro valor ou valores. Um efeito colateral pode ser gravar em um arquivo, modificar alguma variável global ou transferir acidentalmente todo o seu dinheiro para um estranho.
 
 Agora, você precisa ter efeitos colaterais em um programa ocasionalmente. Como no exemplo anterior, pode ser necessário gravar em um arquivo. O que você quer fazer é centralizar onde você está fazendo isso. Não tenha várias funções e classes que gravem em um arquivo específico. Tenha um serviço que faça isso. Um e somente um.
 
 O ponto principal é evitar armadilhas comuns, como compartilhar estado entre objetos sem qualquer estrutura, usar tipos de dados mutáveis que podem ser gravados por qualquer coisa e não centralizar onde ocorrem os efeitos colaterais. Se você puder fazer isso, você será mais feliz do que a grande maioria dos outros programadores.
+<br />
 
 :x: **Errado**
 
@@ -749,6 +780,7 @@ Console.WriteLine(fullName); // His first name is Ryan, and his last name is McD
 
 <details>
   <summary><b>Evite condicionais negativas</b></summary>
+<br />
 
 :x: **Errado**
 
@@ -784,11 +816,16 @@ if (IsDOMNodePresent(node))
 
 <details>
   <summary><b>Evite condicionais usando polimorfismo</b></summary>
+<br />
 
-Esta parece ser uma tarefa impossível. Ao ouvir isso pela primeira vez, a maioria das pessoas diz: "como posso fazer algo sem uma declaração `if`?". 
-A resposta é que você pode usar o polimorfismo para realizar a mesma tarefa em muitos casos. 
-A segunda pergunta geralmente é: "bem, isso é ótimo, mas por que eu iria querer fazer isso?" A resposta é um conceito anterior de código limpo que aprendemos: uma função só deve fazer uma Coisa. Quando você tem classes e funções que possuem instruções `if`, você está dizendo ao usuário que sua função faz mais de uma coisa. 
-Lembre-se, faça apenas uma coisa.
+Esta parece ser uma tarefa impossível. Ao ouvir isso pela primeira vez, a maioria das pessoas diz: "como posso fazer algo sem uma declaração `if`?". <br />
+A resposta é que você pode usar o polimorfismo para realizar a mesma tarefa em muitos casos.<br />
+
+A segunda pergunta geralmente é: "bem, isso é ótimo, mas por que eu iria querer fazer isso?"<br />
+A resposta é um conceito anterior de código limpo que aprendemos: uma função só deve fazer uma Coisa. Quando você tem classes e funções que possuem instruções `if`, você está dizendo ao usuário que sua função faz mais de uma coisa.<br />
+
+**Lembre-se, faça apenas uma coisa.**
+<br />
 
 :x: **Errado**
 
@@ -859,6 +896,7 @@ class Cessna : IAirplane
 
 <details>
   <summary><b>Evite a verificação de tipos (parte 1)</b></summary>
+<br />
 
 :x: **Errado**
 
@@ -908,6 +946,7 @@ public Path TravelToTexas(object vehicle)
 
 <details>
   <summary><b>Evite a verificação de tipos (parte 2)</b></summary>
+<br />
 
 :x: **Errado**
 
@@ -939,8 +978,11 @@ public int Combine(int val1, int val2)
 
 <details>
   <summary><b>Evite flags nos parâmetros do método</b></summary>
+<br />
 
-Uma `flag` indica que o método tem mais de uma responsabilidade. É melhor que o método tenha apenas uma única responsabilidade. Divida o método em dois se um parâmetro booleano adicionar múltiplas responsabilidades ao método.
+Uma `flag` indica que o método tem mais de uma responsabilidade. É melhor que o método tenha apenas uma única responsabilidade.<br />
+Divida o método em dois se um parâmetro booleano adicionar múltiplas responsabilidades ao método.
+<br />
 
 :x: **Errado**
 
@@ -978,9 +1020,12 @@ public void CreateTempFile(string name)
 
 <details>
   <summary><b>Não escreva em funções globais</b></summary>
+<br />
 
-Poluir globais é uma prática ruim em muitas linguagens porque você poderia entrar em conflito com outra biblioteca e o usuário de sua API não saberia até obter uma exceção na produção. Vamos pensar em um exemplo: e se você quisesse ter um array de configuração.
+Poluir globais é uma prática ruim em muitas linguagens porque você poderia entrar em conflito com outra biblioteca e o usuário de sua API não saberia até obter uma exceção na produção. Vamos pensar em um exemplo: e se você quisesse ter um array de configuração.<br />
+
 Você poderia escrever uma função global como `Config()`, mas ela poderia entrar em conflito com outra biblioteca que tentasse fazer a mesma coisa.
+<br />
 
 :x: **Errado**
 
@@ -1031,6 +1076,7 @@ var fooValue = configuration.Get("foo");
 
 <details>
   <summary><b>Não use o padrão Singleton</b></summary>
+<br />
 
 Singleton é um [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern) e não deve ser usado. Parafraseado por Brian Button:
 
@@ -1040,6 +1086,7 @@ Singleton é um [anti-pattern](https://en.wikipedia.org/wiki/Singleton_pattern) 
 4. Eles carregam o estado durante toda a vida útil da aplicação. Isso pode ocasionar problemas nos testes unitários porque um teste pode considerar o estado do objeto resultante de outro teste anterior, e ocasionar um resultado de falso/positivo. Cada teste unitário deve ser independente um do outro.
 
 Também há considerações muito boas de [Misko Hevery](http://misko.hevery.com/about/) sobre a [raiz do problema](http://misko.hevery.com/2008/08/25/root-cause-of-singletons/).
+<br />
 
 :x: **Errado**
 
@@ -1098,10 +1145,12 @@ E agora você pode usar a instância de `DBConnection` em sua aplicação.
 
 <details>
   <summary><b>Argumentos de função (2 ou menos, idealmente)</b></summary>
+<br />
 
 Limitar a quantidade de parâmetros de função é extremamente importante porque facilita o teste de sua função. Ter mais de três leva a uma explosão combinatória onde você terá que testar vários casos diferentes com cada argumento separado.
 
 Zero argumentos é o caso ideal. Um ou dois argumentos são aceitáveis e três devem ser evitados. Qualquer coisa além disso deve ser consolidada. Normalmente, se você tiver mais de dois argumentos, sua função está tentando fazer muita coisa. Nos casos em que não é, na maioria das vezes um objeto de nível superior será suficiente como argumento.
+
 ​
 :x: **Errado**
 
@@ -1143,8 +1192,14 @@ public void CreateMenu(MenuConfig config)
 
 <details>
   <summary><b>Funções devem fazer somente uma coisa</b></summary>
+<br />
 
-Esta é de longe a regra mais importante na engenharia de software. Quando as funções fazem mais de uma coisa, são mais difíceis de compor, testar e raciocinar. Quando você pode isolar uma função para apenas uma ação, elas podem ser refatoradas facilmente e seu código será lido com mais facilidade. Se você não tirar nada deste guia além deste tópico, estará à frente de muitos desenvolvedores.
+Esta é de longe a regra mais importante na engenharia de software. <br />
+
+Quando as funções fazem mais de uma coisa, são mais difíceis de compor, testar e raciocinar. Quando você pode isolar uma função para apenas uma ação, elas podem ser refatoradas facilmente e seu código será lido com mais facilidade.<br />
+
+Se você não tirar nada deste guia além deste tópico, estará à frente de muitos desenvolvedores.
+<br />
 
 :x: **Errado**
 
@@ -1183,6 +1238,7 @@ public List<Client> GetActiveClients(string[] clients)
 
 <details>
   <summary><b>Os nomes das funções devem dizer o que fazem</b></summary>
+<br />
 
 :x: **Errado**
 
@@ -1226,10 +1282,12 @@ message.Send();
 
 <details>
   <summary><b>As funções devem ter apenas um nível de abstração</b></summary>
+<br />
 
-> Não terminado ainda
+> Carece de mais explicação
 
 Quando você tem mais de um nível de abstração, sua função geralmente está fazendo muita coisa. A divisão de funções leva à reutilização e a testes mais fáceis.
+<br />
 
 :x: **Errado**
 
@@ -1380,8 +1438,11 @@ class BetterJSAlternative
 
 <details>
   <summary><b>Chamadores e receptores de funções devem estar próximos</b></summary>
+<br />
 
-Se uma função chamar outra, mantenha essas funções fechadas verticalmente no arquivo de origem. O ideal é manter o chamador logo acima do receptor. Tendemos a ler o código de cima para baixo, como um jornal. Por causa disso, faça seu código ser lido dessa maneira.
+Se uma função chamar outra, mantenha essas funções fechadas verticalmente no arquivo de origem.<br />
+O ideal é manter o chamador logo acima do receptor. Tendemos a ler o código de cima para baixo, como um jornal. Por causa disso, faça seu código ser lido dessa maneira.
+<br />
 
 :x: **Errado**
 
@@ -1490,6 +1551,7 @@ review.PerfReview();
 
 <details>
   <summary><b>Encapsule condicionais</b></summary>
+<br />
 
 :x: **Errado**
 
@@ -1515,8 +1577,11 @@ if (article.IsPublished())
 
 <details>
   <summary><b>Remova o código morto</b></summary>
+<br />
 
-Código morto é tão ruim quanto código duplicado. Não há razão para mantê-lo em sua base de código. Se não estiver sendo chamado, livre-se dele! Ainda estará seguro em seu histórico de versões se você ainda precisar dele.
+Código morto é tão ruim quanto código duplicado. Não há razão para mantê-lo em sua base de código.<br />
+Se não estiver sendo chamado, livre-se dele! Ainda estará seguro em seu histórico de versões se você ainda precisar dele.
+<br />
 
 :x: **Errado**
 
@@ -1555,6 +1620,7 @@ InventoryTracker("apples", request, "www.inventory-awesome.io");
 
 <details>
   <summary><b>Use getters e setters</b></summary>
+<br />
 
 Em C#/VB.NET você pode definir palavras-chave `public`, `protected` e `private` para métodos.
 Usando isto, você pode controlar a modificação de propriedades em um objeto.
@@ -1567,6 +1633,7 @@ Usando isto, você pode controlar a modificação de propriedades em um objeto.
 - Você pode carregar sobre demanda as propriedades do seu objeto.
 
 Além disso, isso faz parte do princípio Aberto/Fechado, dos princípios de design orientado a objetos.
+<br />
 
 :x: **Errado**
 
@@ -1631,6 +1698,7 @@ balance = bankAccount.Balance;
 
 <details>
   <summary><b>Faça com que os objetos tenham membros privados/protegidos</b></summary>
+<br />
 
 :x: **Errado**
 
@@ -1674,9 +1742,11 @@ Console.WriteLine(employee.Name); // Employee name: John Doe
 
 <details>
   <summary><b>Use encadeamento de métodos</b></summary>
+<br />
 
-Este padrão é muito útil e comumente usado em muitas bibliotecas. Ele permite que seu código seja expressivo e menos detalhado.
+Este padrão é muito útil e comumente usado em muitas bibliotecas. Ele permite que seu código seja expressivo e menos detalhado.<br />
 Por esse motivo, use o encadeamento de métodos e veja como seu código ficará limpo.
+<br />
 
 :heavy_check_mark: **Correto**
 
@@ -1738,6 +1808,7 @@ internal static void ListFluentExtensions()
 
 <details>
   <summary><b>Prefira composição à herança</b></summary>
+<br />
 
 Conforme declarado em [_Design Patterns_](https://en.wikipedia.org/wiki/Design_Patterns) pela Gang of Four (GOF), você deve preferir a composição à herança sempre que possível. Existem muitos bons motivos para usar herança e muitos bons motivos para usar composição.
 
@@ -1748,7 +1819,7 @@ Você deve estar se perguntando: "quando devo usar herança?" Isto depende do se
 1. Sua herança representa um relacionamento "é um" e não um relacionamento "tem um" (Humano->Animal vs. Usuário->UserDetails).
 2. Você pode reutilizar o código das classes base (os humanos podem se mover como todos os animais).
 3. Você deseja fazer alterações globais nas classes derivadas alterando uma classe base (Alterar o gasto calórico de todos os animais quando eles se movem).
-
+<br />
 
 :x: **Errado**
 
@@ -1830,6 +1901,7 @@ class Employee
 
 <details>
   <summary><b>O que é SOLID?</b></summary>
+<br />
 
 **SOLID** é o acrônimo mnemônico (em inglês) introduzido por Michael Feathers para os primeiros cinco princípios nomeados por Robert Martin, que significavam cinco princípios básicos de programação e design orientados a objetos.
 
@@ -2367,6 +2439,7 @@ public class Manager
 
 <details>
   <summary><b>DRY - Don’t repeat yourself (Não repita você mesmo)</b></summary>
+<br />
 
 Tente observar o princípio [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 
@@ -2377,6 +2450,7 @@ Imagine se você administra um restaurante e monitora seu estoque: todos os seus
 Muitas vezes você tem código duplicado porque tem duas ou mais coisas ligeiramente diferentes, que têm muito em comum, mas suas diferenças forçam você a ter duas ou mais funções separadas que fazem muitas das mesmas coisas. Remover código duplicado significa criar uma abstração que possa lidar com esse conjunto de coisas diferentes com apenas uma função/módulo/classe.
 
 Acertar a abstração é fundamental, por isso você deve seguir os princípios SOLID descritos na seção [Classes](#classes). Abstrações ruins podem ser piores que código duplicado, então tome cuidado! Dito isto, se você consegue fazer uma boa abstração, faça-a! Não se repita, caso contrário você se verá atualizando vários lugares sempre que quiser mudar alguma coisa.
+<br />
 
 :x: **Errado**
 
@@ -2474,6 +2548,7 @@ public List<EmployeeData> ShowList(Employee employees)
 
 <details>
   <summary><b>Conceito básico de teste</b></summary>
+<br />
 
 Teste é mais importante do que o envio do código. Se você não tiver testes ou tiver em quantidade inadequada, toda vez que você enviar o código, você não terá certeza de que não quebrou nada. A decisão sobre o que constitui um valor adequado cabe à sua equipe, mas ter 100% de cobertura (todos os statements e branches) é a maneira que você consegue ter uma confiança muito alta e também dar tranquilidade para o desenvolvedor. Isso significa que além de ter uma ótima estrutura de testes, você também precisa usar uma [boa ferramenta de cobertura](https://docs.microsoft.com/en-us/visualstudio/test/using-code-coverage-to-determine-how-much-code-is-being-tested).
 
@@ -2484,8 +2559,10 @@ Você pode optar também pelo método do _Test Driven Development (TDD)_, que é
 
 <details>
   <summary><b>Conceito de teste por únidade</b></summary>
+<br />
 
 Certifique que seus testes sejam focados em uma única coisa e não esteja testando coisas diversas (não relacionadas), force o [padrão AAA](http://wiki.c2.com/?ArrangeActAssert) para tornar seus códigos mais limpos e legíveis.
+<br />
 
 :x: **Errado**
 
@@ -2570,6 +2647,7 @@ public class MakeDotNetGreatAgainTests
 
 <details>
   <summary><b>Use Async/Await</b></summary>
+<br />
 
 **Resumo das diretrizes de programação assíncrona**
 
@@ -2578,6 +2656,8 @@ public class MakeDotNetGreatAgainTests
 | Evite `async void`       | Prefira `async Task` em vez de `async void`           | Eventos (Event handlers)        |
 | Async por todo o caminho | Não misture código sincrono (bloqueador) e assíncrono | método Console main (C# <= 7.0) |
 | Configure o contexto     | Use `ConfigureAwait(false)` sempre que puder          | Métodos que requerem contexto   |
+
+<br />
 
 **O jeito assíncrono de fazer as coisas**
 
@@ -2588,15 +2668,21 @@ public class MakeDotNetGreatAgainTests
 | Recuperar os resultados de múltiplas tarefas         | `Task.WaitAll`               | `await Task.WhenAll` |
 | Esperar por um período de tempo                      | `Thread.Sleep`               | `await Task.Delay`   |
 
+<br />
+
 **Boas práticas**
 
 O Async/Await é muito bom para tarefas vinculadas a IO (comunicação de rede, comunicação de banco de dados, solicitação http, etc.), mas não é bom para aplicar em tarefas vinculadas computacionalmente (atravessar em uma lista enorme, renderizar uma imagem enorme, etc.) . Porque isso liberará uma thread que está esperando em uma thread pool  a CPU/núcleos disponíveis não envolverão o processamento dessas tarefas. Portanto, devemos evitar o uso de Async/Await para tarefas computacionais vinculadas.
 
 Para lidar com tarefas computacionais, prefira usar `Task.Factory.CreateNew` com `TaskCreationOptions` é `LongRunning`. Ele iniciará uma nova thread em segundo plano para processar uma tarefa computacional pesada sem liberá-la de volta ao pool de threads até que a tarefa seja concluída.
 
+<br />
+
 **Conheça suas ferramentas**
 
 Há muito o que aprender sobre async e await, e é natural ficar um pouco desorientado. Aqui está uma referência rápida de soluções para problemas comuns.
+
+<br />
 
 **Soluções para problemas assíncronos comuns**
 
@@ -2610,6 +2696,8 @@ Há muito o que aprender sobre async e await, e é natural ficar um pouco desori
 | Sincronize o acesso a um recurso compartilhado            | `SemaphoreSlim`                                                                    |
 | Inicializar um recurso de forma assíncrona                | `AsyncLazy<T>`                                                                     |
 | Estruturas de produtor/consumidor prontas para assíncrono | TPL Dataflow or `AsyncCollection<T>`                                               |
+
+<br />
 
 Leia o [documento Padrão Assíncrono Baseado em Tarefas (TAP)](http://www.microsoft.com/download/en/details.aspx?id=19957).
 Ele é extremamente bem escrito e inclui orientações sobre design de API e o uso adequado de async/await (incluindo cancelamento e relatórios de progresso).
@@ -2635,6 +2723,7 @@ Existem muitas técnicas novas de espera que devem ser usadas em vez das antigas
 
 <details>
   <summary><b>Conceito básico de tratamento de erros</b></summary>
+<br />
 
 Lançar erros é uma coisa boa! Significa que o tempo de execução identificou com sucesso quando algo deu errado em seu programa e está lhe informando interrompendo a execução da função na pilha atual, encerrando todo o processo (no .NET/.NET Core) e notificando você no console com um rastreamento de pilha.
 
@@ -2642,10 +2731,11 @@ Lançar erros é uma coisa boa! Significa que o tempo de execução identificou 
 
 <details>
   <summary><b>Não use 'throw ex' no bloco catch</b></summary>
+<br />
 
-Se você precisar lançar novamente uma exceção depois de capturá-la, use apenas 'throw'.
-Ao usar isso, você preservará o rastreamento de pilha. 
+Se você precisar lançar novamente uma exceção depois de capturá-la, use apenas 'throw'. Ao usar isso, você preservará o rastreamento de pilha.<br />
 Se você fizer como na opção `errada` abaixo, você perderá o rastreamento de pilha.
+<br />
 
 :x: **Errado**
 
@@ -2681,8 +2771,10 @@ catch (Exception ex)
 
 <details>
   <summary><b>Não ignore os erros capturados</b></summary>
+<br />
 
 Não fazer nada com um erro detectado não lhe dá a capacidade de corrigir ou reagir a esse erro. Lançar o erro não é muito melhor, pois muitas vezes ele pode se perder em um mar de coisas impressas no console. Se você agrupar qualquer pedaço de código em um `try/catch` significa que você acha que um erro pode ocorrer ali e, portanto, você deve ter um plano, ou criar um caminho de código, para quando isso ocorrer.
+<br />
 
 :x: **Errado**
 
@@ -2719,9 +2811,10 @@ catch (Exception error)
 
 <details>
   <summary><b>Use vários blocos catch em vez de condições if.</b></summary>
+<br />
 
-Se você precisar tomar medidas de acordo com o tipo de exceção,
-é melhor você usar vários blocos `catch` para tratamento de exceções.
+Se você precisar tomar medidas de acordo com o tipo de exceção, é melhor você usar vários blocos `catch` para tratamento de exceções.
+<br />
 
 :x: **Errado**
 
@@ -2767,10 +2860,14 @@ catch (TaskSchedulerException ex)
 
 <details>
   <summary><b>Mantenha o rastreamento da pilha de exceções ao relançar exceções</b></summary>
+<br />
 
-C# permite que a exceção seja lançada novamente em um bloco catch usando a palavra-chave `throw`. É uma má prática lançar uma exceção capturada usando `throw ex;`. Esta instrução redefine o rastreamento de pilha. Em vez disso, use `throw;`. Isso manterá o rastreamento de pilha e fornecerá uma visão mais profunda sobre a exceção.
-Outra opção é usar uma exceção personalizada. Simplesmente instancie uma nova exceção e defina sua propriedade de exceção interna para a exceção capturada com throw `new CustomException("some info", ex);`. 
+C# permite que a exceção seja lançada novamente em um bloco catch usando a palavra-chave `throw`. É uma má prática lançar uma exceção capturada usando `throw ex;`. Esta instrução redefine o rastreamento de pilha. Em vez disso, use `throw;`. Isso manterá o rastreamento de pilha e fornecerá uma visão mais profunda sobre a exceção.<br />
+
+Outra opção é usar uma exceção personalizada. Simplesmente instancie uma nova exceção e defina sua propriedade de exceção interna para a exceção capturada com throw `new CustomException("some info", ex);`. <br />
+
 Adicionar informações a uma exceção é uma boa prática, pois ajudará na depuração. No entanto, se o objetivo é registrar uma exceção, use `throw;` para passar a responsabilidade para o chamador.
+<br />
 
 :x: **Errado**
 
@@ -2820,8 +2917,10 @@ catch (Exception error)
 
 <details>
   <summary><b>Use exceção contextualizada em vez do objeto 'Exception'</b></summary>
+<br />
 
 Sempre que possível, lance exceções contextualizadas em vez de usar a exceção padrão.
+<br />
 
 :x: **Errado**
 
@@ -2857,16 +2956,19 @@ public double Divide(double dividend, double divider) {
 
 <details>
   <summary><b>Use o arquivo <i>.editorconfig</i></b></summary>
-
 <br />
+
 :x: **Errado**
-<br /><br />
+<br />
+
 Possuir muitos estilos de formatação de código no projeto. Por exemplo, o estilo de recuo é `space` e `tab` misturados no projeto.
-<br /><br />
+<br />
+
 :heavy_check_mark: **Correto**
-<br /><br />
+<br />
+
 Defina e mantenha um estilo de código consistente em sua base de código com o uso de um arquivo `.editorconfig`
-<br /><br />
+<br />
 
 ```csharp
 root = true
@@ -3029,8 +3131,10 @@ indent_size = 2
 
 <details>
   <summary><b>Evite marcadores posicionais</b></summary>
+<br />
 
 Eles geralmente apenas adicionam ruído. Deixe que as funções e os nomes das variáveis, juntamente com o recuo e a formatação adequados, forneçam a estrutura visual ao seu código.
+<br />
 
 :x: **Errado**
 
@@ -3096,8 +3200,10 @@ void Actions()
 
 <details>
   <summary><b>Não deixe código comentado em sua base de código</b></summary>
+<br />
 
 O controle de versão existe por um motivo. Deixe o código antigo em seu histórico.
+<br />
 
 :x: **Errado**
 
@@ -3120,9 +3226,11 @@ doStuff();
 
 <details>
   <summary><b>Não tenho histórico de comentários</b></summary>
+<br />
 
-Lembre-se, use o controle de versão! Não há necessidade de código morto, código comentado e, especialmente, histórico de comentários. 
+Lembre-se, use o controle de versão! Não há necessidade de código morto, código comentado e, especialmente, histórico de comentários. <br />
 Use `git log` para obter o histórico!
+<br />
 
 :x: **Errado**
 
@@ -3154,8 +3262,10 @@ public int Combine(int a,int b)
 
 <details>
   <summary><b>Comente apenas coisas que tenham complexidade de lógica de negócios</b></summary>
+<br />
 
 Os comentários são um pedido de desculpas, não um requisito. Um bom código _principalmente_ documenta a si mesmo.
+<br />
 
 :x: **Errado**
 
