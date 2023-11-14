@@ -2634,18 +2634,18 @@ Existem muitas técnicas novas de espera que devem ser usadas em vez das antigas
 ## Tratamento de Erros (Error Handling)
 
 <details>
-  <summary><b>Basic concept of error handling</b></summary>
+  <summary><b>Conceito básico de tratamento de erros</b></summary>
 
-Thrown errors are a good thing! They mean the runtime has successfully identified when something in your program has gone wrong and it's letting you know by stopping function execution on the current stack, killing the process (in .NET/.NET Core), and notifying you in the console with a stack trace.
+Lançar erros é uma coisa boa! Significa que o tempo de execução identificou com sucesso quando algo deu errado em seu programa e está lhe informando interrompendo a execução da função na pilha atual, encerrando todo o processo (no .NET/.NET Core) e notificando você no console com um rastreamento de pilha.
 
 </details>
 
 <details>
-  <summary><b>Don't use 'throw ex' in catch block</b></summary>
+  <summary><b>Não use 'throw ex' no bloco catch</b></summary>
 
-If you need to re-throw an exception after catching it, use just 'throw'
-By using this, you will save the stack trace. But in the bad option below,
-you will lost the stack trace.
+Se você precisar lançar novamente uma exceção depois de capturá-la, use apenas 'throw'.
+Ao usar isso, você preservará o rastreamento de pilha. 
+Se você fizer como na opção `errada` abaixo, você perderá o rastreamento de pilha.
 
 :x: **Errado**
 
@@ -2680,9 +2680,9 @@ catch (Exception ex)
 </details>
 
 <details>
-  <summary><b>Don't ignore caught errors</b></summary>
+  <summary><b>Não ignore os erros capturados</b></summary>
 
-Doing nothing with a caught error doesn't give you the ability to ever fix or react to said error. Throwing the error isn't much better as often times it can get lost in a sea of things printed to the console. If you wrap any bit of code in a `try/catch` it means you think an error may occur there and therefore you should have a plan, or create a code path, for when it occurs.
+Não fazer nada com um erro detectado não lhe dá a capacidade de corrigir ou reagir a esse erro. Lançar o erro não é muito melhor, pois muitas vezes ele pode se perder em um mar de coisas impressas no console. Se você agrupar qualquer pedaço de código em um `try/catch` significa que você acha que um erro pode ocorrer ali e, portanto, você deve ter um plano, ou criar um caminho de código, para quando isso ocorrer.
 
 :x: **Errado**
 
@@ -2718,10 +2718,10 @@ catch (Exception error)
 </details>
 
 <details>
-  <summary><b>Use multiple catch block instead of if conditions.</b></summary>
+  <summary><b>Use vários blocos catch em vez de condições if.</b></summary>
 
-If you need to take action according to type of the exception,
-you better use multiple catch block for exception handling.
+Se você precisar tomar medidas de acordo com o tipo de exceção,
+é melhor você usar vários blocos `catch` para tratamento de exceções.
 
 :x: **Errado**
 
@@ -2766,10 +2766,11 @@ catch (TaskSchedulerException ex)
 </details>
 
 <details>
-  <summary><b>Keep exception stack trace when rethrowing exceptions</b></summary>
+  <summary><b>Mantenha o rastreamento da pilha de exceções ao relançar exceções</b></summary>
 
-C# allows the exception to be rethrown in a catch block using the `throw` keyword. It is a bad practice to throw a caught exception using `throw e;`. This statement resets the stack trace. Instead use `throw;`. This will keep the stack trace and provide a deeper insight about the exception.
-Another option is to use a custom exception. Simply instantiate a new exception and set its inner exception property to the caught exception with throw `new CustomException("some info", e);`. Adding information to an exception is a good practice as it will help with debugging. However, if the objective is to log an exception then use `throw;` to pass the buck to the caller.
+C# permite que a exceção seja lançada novamente em um bloco catch usando a palavra-chave `throw`. É uma má prática lançar uma exceção capturada usando `throw ex;`. Esta instrução redefine o rastreamento de pilha. Em vez disso, use `throw;`. Isso manterá o rastreamento de pilha e fornecerá uma visão mais profunda sobre a exceção.
+Outra opção é usar uma exceção personalizada. Simplesmente instancie uma nova exceção e defina sua propriedade de exceção interna para a exceção capturada com throw `new CustomException("some info", ex);`. 
+Adicionar informações a uma exceção é uma boa prática, pois ajudará na depuração. No entanto, se o objetivo é registrar uma exceção, use `throw;` para passar a responsabilidade para o chamador.
 
 :x: **Errado**
 
@@ -2818,9 +2819,9 @@ catch (Exception error)
 </details>
 
 <details>
-  <summary><b>Use contextualized exception instead 'Exception' object</b></summary>
+  <summary><b>Use exceção contextualizada em vez do objeto 'Exception'</b></summary>
 
-Whenever possible, throw contextualized exceptions instead of using the standard exception.
+Sempre que possível, lance exceções contextualizadas em vez de usar a exceção padrão.
 
 :x: **Errado**
 
