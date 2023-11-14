@@ -26,7 +26,7 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
   - [Tratamento de Erros (Error Handling)](#tratamento-de-erros-error-handling)
   - [Formatação](#formatação)
   - [Comentários](#comentários)
-- [Other Clean Code Resources](#other-clean-code-resources)
+- [Outros Recursos de Clean Code](#outros-recursos-de-clean-code)
   - [Outras listas de Clean Code](#outras-listas-de-clean-code)
   - [Guia de Estilos](#guia-de-estilos)
   - [Ferramentas](#ferramentas)
@@ -3232,7 +3232,7 @@ private int ConvertTo32BitInt(int value)
 
 </details>
 
-# Other Clean Code Resources
+# Outros Recursos de Clean Code
 
 ## Outras listas de Clean Code
 
