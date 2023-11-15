@@ -191,8 +191,8 @@ Levará um bom tempo para investigar o significado das variáveis e funções qu
 ```csharp
 public class Colaborador
 {
-    public Datetime dtInicioTrabalho { get; set; } // Que diabos é isso
-    public Datetime hrModificacao { get; set; } // Mesma coisa
+    public Datetime dtinitrab { get; set; } // Que diabos é isso
+    public Datetime hrmod { get; set; } // Mesma coisa
 }
 ```
 
@@ -473,7 +473,8 @@ if (userRole == "Admin")
 :heavy_check_mark: **Correto**
 
 ```csharp
-const string ADMIN_ROLE = "Admin"
+const string ADMIN_ROLE = "Admin";
+
 if (userRole == ADMIN_ROLE)
 {
     // logic in here
