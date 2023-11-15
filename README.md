@@ -2734,7 +2734,7 @@ Lançar erros é uma coisa boa! Significa que o tempo de execução identificou 
 <br />
 
 Se você precisar lançar novamente uma exceção depois de capturá-la, use apenas 'throw'. Ao usar isso, você preservará o rastreamento de pilha.<br />
-Se você fizer como na opção `errada` abaixo, você perderá o rastreamento de pilha.
+Se você fizer como na opção errada abaixo, você perderá o rastreamento de pilha.
 <br />
 
 :x: **Errado**
