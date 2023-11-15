@@ -16,11 +16,6 @@ Este projeto é baseado no projeto [clean-code-dotnet](https://github.com/thangc
   - [Objetos e estruturas de dados](#objetos-e-estruturas-de-dados)
   - [Classes](#classes)
   - [SOLID](#solid)
-      - [Princípio da Responsabilidade Única](#princípio-da-responsabilidade-única)
-      - [Princípio Aberto/Fechado](#princípio-abertofechado)
-      - [Princípio da Substituição de Liskov](#princípio-da-substituição-de-liskov)
-      - [Princípio da Segregação de Interfaces](#princípio-da-segregação-de-interfaces)
-      - [Princípio de Inversão de Dependência](#princípio-de-inversão-de-dependência)
   - [Testes](#testes)
   - [Concorrência](#concorrência)
   - [Tratamento de Erros (Error Handling)](#tratamento-de-erros-error-handling)
@@ -1915,8 +1910,11 @@ class Employee
 
 <details>
   <summary><b>Single Responsibility Principle (SRP)</b></summary>
+<br />
 
-#### Princípio da Responsabilidade Única
+**Princípio da Responsabilidade Única**
+<br />
+
 Conforme declarado no Clean Code, "Nunca deve haver mais de um motivo para a mudança de uma classe". É tentador lotar uma aula com muitas funcionalidades, como quando você só pode levar uma mala no voo. O problema com isso é que sua classe não será conceitualmente coesa e isso lhe dará muitos motivos para mudar. É importante minimizar a quantidade de vezes que você precisa mudar de classe.
 
 É importante porque se houver muita funcionalidade em uma classe e você modificar uma parte dela, pode ser difícil entender como isso afetará outros módulos dependentes em sua base de código.
@@ -1993,8 +1991,11 @@ class UserSettings
 
 <details>
   <summary><b>Open/Closed Principle (OCP)</b></summary>
+<br />
 
-#### Princípio Aberto/Fechado
+**Princípio Aberto/Fechado**
+<br />
+
 Conforme afirma Bertrand Meyer, “entidades de software (classes, módulos, funções, etc.) devem ser abertas para extensão, mas fechadas para modificação”. O que isso significa? Este princípio basicamente afirma que você deve permitir que os usuários adicionem novas funcionalidades sem alterar o código existente.
 
 :x: **Errado**
@@ -2107,8 +2108,11 @@ class HttpRequester
 
 <details>
   <summary><b>Liskov Substitution Principle (LSP)</b></summary>
+<br />
 
-#### Princípio da Substituição de Liskov
+**Princípio da Substituição de Liskov**
+<br />
+
 Este é um termo assustador para um conceito muito simples. É formalmente definido como "Se S é um subtipo de T, então objetos do tipo T podem ser substituídos por objetos do tipo S (ou seja, objetos do tipo S podem substituir objetos do tipo T) sem alterar nenhuma das propriedades desejáveis desse programa (correção, tarefa executada,
 etc.)." Essa é uma definição ainda mais assustadora.
 
@@ -2249,8 +2253,11 @@ RenderLargeRectangles(shapes);
 
 <details>
   <summary><b>Interface Segregation Principle (ISP)</b></summary>
+<br />
 
-#### Princípio da Segregação de Interfaces
+**Princípio da Segregação de Interfaces**
+<br />
+
 O ISP afirma que “os clientes não devem ser forçados a depender de interfaces que não utilizam”.
 
 Um bom exemplo que demonstra esse princípio é para classes que exigem objetos de configurações grandes. Não exigir que os clientes configurem grandes quantidades de opções é benéfico, porque na maioria das vezes eles não precisarão de todas as configurações. Torná-los opcionais ajuda a evitar uma "interface gorda".
@@ -2339,8 +2346,11 @@ public class Robot : IWorkable
 
 <details>
   <summary><b>Dependency Inversion Principle (DIP)</b></summary>
+<br />
 
-#### Princípio de Inversão de Dependência
+**Princípio de Inversão de Dependência**
+<br />
+
 Isso pode ser difícil de entender no início, mas se você trabalhou com a estrutura .NET/.NET Core, viu uma implementação desse princípio na forma de [Injeção de Dependência](https://martinfowler.com/articles/injection.html) (DI). Embora não sejam conceitos idênticos, o DIP impede que os módulos de alto nível conheçam os detalhes de seus módulos de baixo nível e os configurem.
 Isso pode ser feito por meio do DI. Um grande benefício disso é que reduz o acoplamento entre os módulos. O acoplamento é um padrão de desenvolvimento muito ruim porque dificulta a refatoração do seu código.
 
