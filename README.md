@@ -3346,7 +3346,7 @@ private int ConvertTo32BitInt(int value)
 
 ## Outras listas de Clean Code
 
-- [clean-code-javascript](https://github.com/ryanmcdermott/clean-code-javascript) - Conceitos Clean Code adaptado para JavaScript
+- [clean-code-javascript](https://github.com/felipe-augusto/clean-code-javascript) - Conceitos Clean Code adaptado para JavaScript
 - [clean-code-php](https://github.com/jupeter/clean-code-php) - Conceitos Clean Code adaptado para PHP
 - [clean-code-ruby](https://github.com/uohzxela/clean-code-ruby) - Conceitos Clean Code adaptado para Ruby
 - [clean-code-python](https://github.com/zedr/clean-code-python) - Conceitos Clean Code adaptado para Python
