@@ -3370,8 +3370,8 @@ private int ConvertTo32BitInt(int value)
 ## Cheatsheets
 
 - [AspNetCoreDiagnosticScenarios](https://github.com/davidfowl/AspNetCoreDiagnosticScenarios) - Exemplos de broken patterns em aplicativos ASP.NET Core
-- [Clean Code](cheatsheets/Clean-Code-V2.4.pdf) - Um resumo do livro [Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/dp/0132350882)
-- [Clean Architecture](cheatsheets/Clean-Architecture-V1.0.pdf) - Um resumo do livro [Clean Architecture: A Craftsman's Guide to Software Structure and Design](https://www.amazon.com/dp/0134494164)
+- [Clean Code](cheatsheets/Clean-Code-V2.4.pdf) - Um resumo do livro [Código limpo: habilidades práticas do Agile software](https://www.amazon.com.br/dp/8576082675?ref_=cm_sw_r_cp_ud_dp_AHQYXKPJZ8ECWCBN8ZWK)
+- [Clean Architecture](cheatsheets/Clean-Architecture-V1.0.pdf) - Um resumo do livro [Arquitetura limpa: o guia do artesão para estrutura e design de software](https://www.amazon.com.br/dp/8550804606?ref_=cm_sw_r_cp_ud_dp_JVE09W25S10GF7Y62ZC3)
 - [Modern JavaScript Cheatsheet](https://github.com/mbeaudru/modern-js-cheatsheet) - Cheatsheet para o conhecimento de JavaScript que você encontrará frequentemente em projetos modernos
 - [OWASP Cheat Sheet Series](https://cheatsheetseries.owasp.org) - Cheatsheet foi criado para fornecer uma coleção concisa de informações de alto valor sobre tópicos específicos de segurança de aplicativos
 - [.NET Memory Performance Analysis](https://github.com/Maoni0/mem-doc/blob/master/doc/.NETMemoryPerformanceAnalysis.md) - Este documento tem como objetivo ajudar as pessoas que desenvolvem aplicativos em .NET a pensar sobre a análise de desempenho de memória e a encontrar as abordagens corretas para realizar tal análise, se necessário. Neste contexto, o .NET inclui o .NET Framework e o .NET Core. Para obter as melhorias de memória mais recentes no coletor de lixo e no restante da estrutura, recomendo fortemente que você esteja no .NET Core, caso ainda não esteja, porque é onde o desenvolvimento ativo acontece
