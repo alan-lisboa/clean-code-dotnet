@@ -676,7 +676,7 @@ if (matches[0].Success == true && matches[1].Success == true)
 
 :heavy_check_mark: **Correto**
 
-Decrease dependence on regex by naming subpatterns.
+Diminua a dependência de regex nomeando subpadrões.
 
 ```csharp
 const string Address = "One Infinite Loop, Cupertino 95014";
