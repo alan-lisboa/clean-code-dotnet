@@ -1250,7 +1250,7 @@ public class Email
 }
 
 var message = new Email(...);
-// What is this? A handle for the message? Are we writing to a file now?
+// O que é isto? Um manipulador para a mensagem? Nós estamos escrevendo para um arquivo agora?
 message.Handle();
 ```
 
@@ -1268,7 +1268,7 @@ public class Email
 }
 
 var message = new Email(...);
-// Clear and obvious
+// Claro e óbvio
 message.Send();
 ```
 
